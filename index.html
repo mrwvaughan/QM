@@ -79,46 +79,48 @@
             display: block;
         }
         .nav-section-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #4b5563;
-            margin-bottom: 0.75rem;
+            font-size: 1rem; /* Slightly smaller font size */
+            font-weight: 500; /* Lighter weight */
+            color: #6b7280; /* Softer grey color */
+            margin-bottom: 0.5rem; /* Reduced margin */
             text-align: center;
             flex-shrink: 0;
         }
         .nav-dropdown {
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.5rem;
-            background-color: #dbeafe;
-            color: #1e40af;
-            font-weight: 500;
+            padding: 0.375rem 0.625rem; /* Reduced padding */
+            border-radius: 0.375rem; /* Slightly smaller rounded corners */
+            background-color: #f0f9ff; /* Very light blue */
+            color: #3b82f6; /* Default blue for text */
+            font-weight: 400; /* Normal font weight */
             cursor: pointer;
             transition: background-color 0.3s ease;
             white-space: nowrap;
             text-align: center;
-            font-size: 0.875rem;
-            border: 1px solid #93c5fd;
+            font-size: 0.8rem; /* Smaller font size */
+            border: 1px solid #bfdbfe; /* Lighter blue border */
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%231e40af" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%233b82f6" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
             background-repeat: no-repeat;
-            background-position: right 0.5rem center;
-            background-size: 1.5em;
-            min-width: 150px;
+            background-position: right 0.375rem center; /* Adjusted position */
+            background-size: 1.2em; /* Smaller arrow */
+            min-width: 120px; /* Reduced min-width */
+            box-shadow: none; /* Removed shadow */
         }
         .nav-dropdown:hover {
-            background-color: #bfdbfe;
+            background-color: #e0f2fe; /* Lighter blue on hover */
         }
         .nav-dropdown:focus {
             outline: none;
-            box-shadow: 0 0 0 2px #bfdbfe;
+            box-shadow: 0 0 0 1px #93c5fd; /* Thinner focus ring */
         }
         .nav-group {
             display: flex;
+            flex-direction: column; /* Stack title and dropdown vertically */
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 0.25rem; /* Reduced gap */
+            margin-bottom: 0.75rem; /* Reduced margin */
         }
         .nav-group:last-child {
             margin-bottom: 0;
@@ -127,7 +129,10 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem; /* Reduced gap between year groups */
+            padding: 0.5rem; /* Reduced padding for the nav container */
+            background-color: #f8fafc; /* Very light grey for nav background */
+            box-shadow: none; /* Removed shadow from nav container */
         }
         hr {
             border-top: 1px solid #d1d5db; /* Light grey horizontal rule */
@@ -136,13 +141,14 @@
         .sub-nav-container {
             margin-top: 1rem;
             margin-bottom: 2rem;
-            padding: 1rem;
+            padding: 0.75rem; /* Reduced padding */
             background-color: #e0f7fa; /* Lighter blue for sub-nav */
             border-radius: 0.5rem;
             text-align: center;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
         }
         .sub-nav-container .nav-dropdown {
-            min-width: 200px; /* Adjust width for sub-nav dropdown */
+            min-width: 180px; /* Adjust width for sub-nav dropdown */
         }
     </style>
 </head>
@@ -264,7 +270,7 @@
                 <li><a href="https://www.nspcc.org.uk/keeping-children-safe/online-safety/" target="_blank">NSPCC: Online Safety</a> (Resources on various online safety topics for children)</li>
                 <li><a href="https://www.thinkuknow.co.uk/" target="_blank">Thinkuknow</a> (Educational resources from the National Crime Agency's CEOP Command)</li>
                 <li><strong>For Students:</strong></li>
-                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/3" target="_blank">BBC Newsround: Online Safety</a> (Articles and videos on staying safe online, including fake news)</li>
+                <li><a href="https://www.bbc.co.uk/newsround/38906931" target="_blank">BBC Newsround: Online Safety</a> (Articles and videos on staying safe online, including fake news)</li>
                 <li><a href="https://www.childline.org.uk/info-advice/bullying-abuse-safety/types-bullying/cyberbullying/" target="_blank">Childline: Cyberbullying</a> (Advice and support for young people experiencing cyberbullying)</li>
             </ul>
             <hr>
