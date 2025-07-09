@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QMHS Computer Science Key Stage 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for better readability and aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light grey background */
+            color: #1f2937; /* Dark grey text */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1280px; /* Max width for content */
+            margin: 2rem auto; /* Center content with margin */
+            padding: 1.5rem;
+            background-color: #ffffff; /* White background for the content area */
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h1 {
+            color: #111827; /* Darker heading color */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        h2 {
+            color: #111827;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        h3 {
+            color: #1f2937;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem 1rem; /* Added padding for better visual separation */
+            background-color: #e0f2fe; /* Light blue background to make it stand out */
+            border-radius: 0.5rem; /* Rounded corners for the title block */
+            border-left: 4px solid #2563eb; /* Blue left border */
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            list-style-position: outside; /* Ensures markers are outside content flow */
+            margin-left: 1.5rem; /* Consistent indentation */
+            margin-bottom: 1rem;
+        }
+        ol {
+            list-style-type: decimal;
+            list-style-position: outside; /* Ensures markers are outside content flow */
+            margin-left: 1.5rem; /* Consistent indentation */
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            list-style-type: inherit; /* Ensure list-style is not reset by parent elements */
+        }
+        strong {
+            font-weight: 700;
+        }
+        a {
+            color: #2563eb; /* Blue link color */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .nav-section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .nav-dropdown {
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 0.875rem;
+            border: 1px solid #93c5fd;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%231e40af" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5em;
+            min-width: 150px;
+        }
+        .nav-dropdown:hover {
+            background-color: #bfdbfe;
+        }
+        .nav-dropdown:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #bfdbfe;
+        }
+        .nav-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .nav-group:last-child {
+            margin-bottom: 0;
+        }
+        .nav-main-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        hr {
+            border-top: 1px solid #d1d5db; /* Light grey horizontal rule */
+            margin: 2rem 0; /* Spacing for the rule */
+        }
+        .sub-nav-container {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #e0f7fa; /* Lighter blue for sub-nav */
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .sub-nav-container .nav-dropdown {
+            min-width: 200px; /* Adjust width for sub-nav dropdown */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-extrabold mb-8">QMHS Computer Science Key Stage 3</h1>
+
+        <nav class="mb-8 p-4 bg-gray-100 rounded-lg shadow-sm">
+            <div class="nav-main-container">
+                <div class="nav-group">
+                    <div class="nav-section-title">Year 7:</div>
+                    <select id="year7-units" class="nav-dropdown" onchange="showTab(this.value)">
+                        <option value="ucser-sol">UCSER</option>
+                        <option value="understanding-computers-sol">Understanding Computers</option>
+                        <option value="html-web-dev-sol">HTML & Web Development</option>
+                        <option value="python-turtle-sol">Python Turtle</option>
+                    </select>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-section-title">Year 8:</div>
+                    <select id="year8-units" class="nav-dropdown" onchange="showTab(this.value)">
+                        <option value="computational-thinking-sol">Computational Thinking</option>
+                        <option value="intro-python-sol">Introduction to Python</option>
+                        <option value="networks-sol">Networks</option>
+                    </select>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-section-title">Year 9:</div>
+                    <select id="year9-units" class="nav-dropdown" onchange="showTab(this.value)">
+                        <option value="computer-crime-sol">Cyber Security</option>
+                        <option value="data-representation-sol">Data Representation</option>
+                        <option value="python-next-steps-sol">Python Next Steps</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+
+        <div id="ucser-sol" class="tab-content active">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Using Computers Safely, Effectively, and Responsibly</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This scheme of learning outlines a six-lesson unit focusing on the safe, effective, and responsible use of computers, suitable for Year 7 pupils.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="ucser-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="ucser-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="ucser-lesson-1">Lesson 1: File Management & Backup</option>
+                    <option value="ucser-lesson-2">Lesson 2: Social Networking & Online Identity</option>
+                    <option value="ucser-lesson-3">Lesson 3: Passwords & Email Scams</option>
+                    <option value="ucser-lesson-4">Lesson 4: Email Communication</option>
+                    <option value="ucser-lesson-5">Lesson 5: Search Engines & Online Information</option>
+                    <option value="ucser-lesson-6">Lesson 6: Unit Revision & Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="ucser-lesson-1">Lesson 1: File Management & Backup</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>To learn to manage files in File Explorer.</li>
+                <li>To understand the importance of backup.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss school's Code of Conduct/Acceptable Use Policy. Introduce file extensions and their purpose.</li>
+                <li><strong>Main Activity:</strong> Pupils download and complete Task 1 of Worksheet 1 (File Management). Review answers as a class. Teach file management techniques in File Explorer (opening, tree structure, creating folders, common operations, shortcut keys). Pupils complete Task 2 of Worksheet 1. Emphasise the importance of backing up work (flash drive, school system, email, cloud storage).</li>
+                <li><strong>Plenary:</strong> Discuss worksheet answers. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks (practical application and discussion).</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>PSHE:</strong> Digital citizenship, responsible use of technology.</li>
+                <li><strong>ICT/Computing:</strong> Fundamental file operations.</li>
+                <li><strong>Careers:</strong> IT Support Technician, Data Entry Clerk, Cloud Administrator – roles requiring strong organisational skills and understanding of data integrity.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li><strong>For Teachers:</strong></li>
+                <li><a href="https://support.microsoft.com/en-us/windows/find-and-open-file-explorer-ef37077e-4770-4247-9873-10f854157147" target="_blank">Microsoft Support: File Explorer</a> (General guide on File Explorer for Windows users)</li>
+                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/1" target="_blank">GCSE Bitesize: File Management</a> (Basic concepts of file management)</li>
+                <li><strong>For Students:</strong></li>
+                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/2" target="_blank">GCSE Bitesize: Saving and Organising Files</a> (Simple explanations of saving and organising files)</li>
+                <li><a href="https://www.webopedia.com/reference/file-extensions/" target="_blank">Common File Extensions Explained</a> (A list and explanation of common file extensions)</li>
+            </ul>
+            <hr>
+
+            <h3>Lesson 2: Social Networking & Online Identity</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Learn about the possible dangers of social networking sites.</li>
+                <li>Learn how to respond to threats on the Internet.</li>
+                <li>Learn how to keep your identity secure on the Internet.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Brainstorm social networking sites. Discuss minimum age requirements.</li>
+                <li><strong>Main Activity:</strong> Cover "Conduct, Contact, and Content" (Cyberbullying, Online Strangers, Inappropriate Content). Discuss Cyberbullying scenarios from Worksheet 2, Task 1. Explore ways to verify online identities. Discuss consequences of posting inappropriate content and how to report concerns. Discuss "Nothing can be deleted" concept and the "Right to be forgotten". Discuss impact on future employers (e.g., Paris Brown case study). Pupils complete Task 2 on online profiles and personal details. Discuss gang recruitment (if appropriate).</li>
+                <li><strong>Plenary:</strong> Discuss life without communications technology. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks (discussion and personal reflection).</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>PSHE:</strong> Online safety, cyberbullying awareness, digital footprint, personal well-being.</li>
+                <li><strong>Citizenship:</strong> Rights and responsibilities online.</li>
+                <li><strong>CEIAG:</strong> Impact of online presence on future employment. Careers in Digital Marketing, Social Media Management, Law Enforcement (cybercrime units), and HR benefit from understanding digital footprints and online safety.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li><strong>For Teachers:</strong></li>
+                <li><a href="https://www.nspcc.org.uk/keeping-children-safe/online-safety/" target="_blank">NSPCC: Online Safety</a> (Resources on various online safety topics for children)</li>
+                <li><a href="https://www.thinkuknow.co.uk/" target="_blank">Thinkuknow</a> (Educational resources from the National Crime Agency's CEOP Command)</li>
+                <li><strong>For Students:</strong></li>
+                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/3" target="_blank">BBC Newsround: Online Safety</a> (Articles and videos on staying safe online, including fake news)</li>
+                <li><a href="https://www.childline.org.uk/info-advice/bullying-abuse-safety/types-bullying/cyberbullying/" target="_blank">Childline: Cyberbullying</a> (Advice and support for young people experiencing cyberbullying)</li>
+            </ul>
+            <hr>
+
+            <h3>Lesson 3: Passwords & Email Scams</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Learn how to create a secure, memorable password.</li>
+                <li>Learn how to protect your identity online.</li>
+                <li>Learn how to avoid being a victim of an email scam.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss password usage and common practices.</li>
+                <li><strong>Main Activity:</strong> Discuss basic rules for password security (strength, length, memorability strategies). Pupils complete Task 1 on Worksheet 3 (Protecting Personal Data). Discuss identity theft and biometric security. Talk about phishing emails, showing examples (e.g., HighSave Bank). Pupils complete Task 2 based on a fictional game phishing scam.</li>
+                <li><strong>Plenary:</strong> Discuss signs of scam emails and what to do (report, delete). Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks (practical application and identification of scams).</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>PSHE:</strong> Personal security, critical thinking, consumer awareness.</li>
+                <li><strong>Careers:</strong> Cybersecurity Analyst, Fraud Investigator, IT Security Consultant – roles focused on protecting digital assets and identities.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li><strong>For Teachers:</strong></li>
+                <li><a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/passwords" target="_blank">National Cyber Security Centre (NCSC): Passwords</a> (Guidance on creating strong passwords)</li>
+                <li><a href="https://www.getsafeonline.org/cyber-security/phishing/" target="_blank">Get Safe Online: Phishing</a> (Information on identifying and avoiding phishing scams)</li>
+                <li><strong>For Students:</strong></li>
+                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/4" target="_blank">GCSE Bitesize: Online Security</a> (Covers passwords, phishing, and viruses)</li>
+                <li><a href="https://howsecureismypassword.net/" target="_blank">How Secure Is My Password?</a> (An interactive tool to demonstrate password strength)</li>
+            </ul>
+            <hr>
+
+            <h3>Lesson 4: Email Communication</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>To learn how to send, respond to and forward emails.</li>
+                <li>To search old emails for a sender, subject, etc.</li>
+                <li>To resize large image files before sending.</li>
+                <li>To manage a contacts list.</li>
+                <li>To be aware of the advantages and disadvantages of email.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss email usage and purposes.</li>
+                <li><strong>Main Activity:</strong> Briefly discuss how email works and email provider services. Discuss appropriate usernames for professional use. Explain email verification for websites and two-factor authentication. Demonstrate sending, forwarding, replying, CC/BCC, and sending attachments (including resizing large images). Pupils complete Worksheet 4 (practical email tasks). Discuss address book features and email signatures. Compare advantages and disadvantages of email with other communication methods. Demonstrate searching within an inbox.</li>
+                <li><strong>Plenary:</strong> Discuss emails written for Worksheet 4. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 (practical email tasks).</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>English:</strong> Formal and informal communication, written etiquette.</li>
+                <li><strong>Business Studies:</strong> Professional communication, email in a business context.</li>
+                <li><strong>Careers:</strong> Office Administrator, Marketing Assistant, Customer Service Representative – roles requiring effective digital communication skills.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li><strong>For Teachers:</strong></li>
+                <li><a href="https://support.google.com/a/users/answer/9282717?hl=en" target="_blank">Google Workspace Learning Center: Gmail Basics</a> (Guides on using Gmail, applicable to many email clients)</li>
+                <li><a href="https://support.microsoft.com/en-us/outlook" target="_blank">Microsoft Support: Outlook Email Basics</a> (Comprehensive support for Outlook email)</li>
+                <li><strong>For Students:</strong></li>
+                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/3" target="_blank">GCSE Bitesize: Email</a> (Explains email basics and features)</li>
+                <li><a href="https://www.wikihow.com/How-to-Resize-an-Image-for-Email" target="_blank">How to Resize an Image for Email</a> (Step-by-step guide for image resizing)</li>
+            </ul>
+            <hr>
+
+            <h3>Lesson 5: Search Engines & Online Information</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Define the term “search engine” and name examples.</li>
+                <li>Learn techniques to use a search engine efficiently.</li>
+                <li>Appreciate that there is no guarantee that the information on the Internet is accurate.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Brainstorm search engines and discuss usage frequency.</li>
+                <li><strong>Main Activity:</strong> Explain how search engines work (indexing, servers). Discuss keywording and advanced search tools (quote marks, minus sign). Demonstrate Google's advanced search options. Discuss cookies and targeted advertising. Emphasise critical evaluation of online information. Show the Dihydrogen Monoxide example. Discuss "Fake News" and how to spot it, using recent controversies. Compare Wikipedia with traditional encyclopaedias (e.g., Encyclopaedia Britannica). Pupils complete Worksheet 5.</li>
+                <li><strong>Plenary:</strong> Class discussion on Worksheet 5 answers. Advise pupils to revise PowerPoint slides for homework. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks (research and critical evaluation).</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>English:</strong> Critical literacy, evaluating sources, media studies.</li>
+                <li><strong>Science:</strong> Scientific literacy (Dihydrogen Monoxide example).</li>
+                <li><strong>PSHE:</strong> Media bias, misinformation.</li>
+                <li><strong>Careers:</strong> Researcher, Journalist, Data Analyst, Librarian, Fact-Checker – roles requiring strong information literacy and critical evaluation skills.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li><strong>For Teachers:</strong></li>
+                <li><a href="https://www.commonsense.org/education/digital-citizenship" target="_blank">Common Sense Education: Digital Citizenship</a> (Resources on media literacy and evaluating information)</li>
+                <li><a href="https://support.google.com/websearch/?hl=en" target="_blank">Google Search Help</a> (Official guides on using Google Search effectively)</li>
+                <li><strong>For Students:</strong></li>
+                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/5" target="_blank">BBC Bitesize: Search Engines</a> (Explains how search engines work and search techniques)</li>
+                <li><a href="https://www.factcheck.org/2016/11/how-to-spot-fake-news/" target="_blank">FactCheck.org: How to Spot Fake News</a> (Tips for identifying unreliable information)</li>
+                <li><a href="https://en.wikipedia.org/wiki/Wikipedia:About" target="_blank">Wikipedia: About</a> (Information about Wikipedia and its policies)</li>
+            </ul>
+            <hr>
+
+            <h3>Lesson 6: Unit Revision & Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>To revise the content of the unit.</li>
+                <li>To sit the assessment test.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Briefly revise key parts of the unit (e.g., quick Q&A, mind map creation).</li>
+                <li><strong>Main Activity:</strong> Pupils complete the multiple-choice assessment test (40 questions, approx. 30 minutes).</li>
+                <li><strong>Plenary:</strong> Review test answers (if appropriate for self-marking or class discussion).</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Multiple choice assessment test.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Assessment:</strong> Summative assessment of unit content.</li>
+                <li><strong>Careers:</strong> Reinforces foundational digital literacy essential for almost all modern careers.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li><strong>For Teachers:</strong></li>
+                <li>UCSER Final Assessment (provided in the teaching guide)</li>
+                <li>UCSER Final Assessment Answers (provided in the teaching guide)</li>
+                <li><strong>For Students:</strong></li>
+                <li>PowerPoint Guide: UCSER L1-L5 (for revision)</li>
+                <li>Worksheets 1-5 (for revision)</li>
+                <li>Homeworks 1-5 (for revision)</li>
+            </ul>
+        </div>
+
+        <div id="data-representation-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Data Representation</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit covers Section 1.2.3 and 1.2.4 of the OCR J277 specification for GCSE Computer Science, focusing on units, data storage, and representation of characters, images, and sound.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="data-representation-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="data-representation-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="data-representation-lesson-1">Lesson 1: Units and Binary Numbers</option>
+                    <option value="data-representation-lesson-2">Lesson 2: Binary Arithmetic & Hexadecimal</option>
+                    <option value="data-representation-lesson-3">Lesson 3: Characters</option>
+                    <option value="data-representation-lesson-4">Lesson 4: Images</option>
+                    <option value="data-representation-lesson-5">Lesson 5: Sound</option>
+                    <option value="data-representation-lesson-6">Lesson 6: Compression</option>
+                    <option value="data-representation-assessment">Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="data-representation-lesson-1">Lesson 1: Units and Binary Numbers</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Define the terms bit, nibble, byte, kilobyte, megabyte, gigabyte, terabyte and petabyte.</li>
+                <li>Understand that data needs to be converted into a binary format to be processed by a computer.</li>
+                <li>Convert positive denary whole numbers (0-255) into 8-bit binary numbers and vice versa.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider the on/off power button symbol. Explain computers use binary (1s and 0s).</li>
+                <li><strong>Main Activity:</strong> Understand binary and binary number system. Discuss basic circuit layout. Define bit, byte, nibble. Discuss larger units (kB, MB, GB, TB, PB, EB, ZB, YB). Explain 1000 vs 1024 (kibibyte). Create mnemonics for units. Demonstrate bit combinations. Explain denary (decimal) system and how binary works similarly. Define most significant bit (MSB) and least significant bit (LSB). Complete Worksheet 1, Task 1. Demonstrate denary to binary conversion (subtraction method). Discuss representing large integers (16 bits, 24 bits for graphics). Complete Worksheet 1, Task 2.</li>
+                <li><strong>Plenary:</strong> Review questions in pairs, then class discussion. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Data Scientist, Software Engineer, Game Developer, Digital Artist – understanding data representation is fundamental to these roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 1 Units and binary numbers</li>
+                <li>Topic 1 Worksheet 1</li>
+                <li>Topic 1 Worksheet 1 Answers</li>
+                <li>Topic 1 Homework 1</li>
+                <li>Topic 1 Homework 1 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="data-representation-lesson-2">Lesson 2: Binary Arithmetic & Hexadecimal</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Convert positive denary whole numbers (0-255) into 2-digit hexadecimal numbers and vice versa.</li>
+                <li>Convert between binary, denary and hexadecimal equivalents of the same number.</li>
+                <li>Add two 8-bit binary integers and explain overflow errors which may occur.</li>
+                <li>Understand the use of binary shifts.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Review binary to denary conversions. Introduce binary addition.</li>
+                <li><strong>Main Activity:</strong> Practice binary calculation (odd/even numbers). Introduce Hexadecimal (base-16, 0-9, A-F). Demonstrate hex to denary conversion (e.g., 2A). Demonstrate denary to hex conversion (e.g., 18). Hand out Worksheet 2, Task 1a. Discuss binary to hex conversion. Complete Worksheet 2, Task 1b. Explain why hex is used (e.g., colour values). Demonstrate simple denary addition. Explain binary addition rules (0+0=0, 0+1=1, 1+0=1, 1+1=0 carry 1, 1+1+1=1 carry 1). Discuss overflow errors (numbers > 255). Introduce binary shifts (left shift multiplies by 2, right shift divides by 2). Discuss discarded bits and loss of accuracy. Complete Worksheet 2, Task 2.</li>
+                <li><strong>Plenary:</strong> Practice number conversions. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Low-level Programmer, Embedded Systems Engineer, Cybersecurity Specialist – understanding hexadecimal and binary arithmetic is crucial for working directly with computer memory and security.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 2 Binary arithmetic and hexadecimal</li>
+                <li>Topic 2 Worksheet 2</li>
+                <li>Topic 2 Homework 2</li>
+                <li>Topic 2 Homework 2 Answers</li>
+                <li><a href="https://www.metronomeonline.com/" target="_blank">Online Metronome</a></li>
+                <li><a href="https://www.youtube.com/watch?v=VLzCg5YlQ7Y" target="_blank">Binary Video</a></li>
+                <li><a href="https://www.browserling.com/tools/text-to-ascii" target="_blank">Text to ASCII and Binary Converter</a></li>
+                <li><a href="http://csunplugged.org/" target="_blank">Computer Science Unplugged</a></li>
+                <li><a href="https://www.youtube.com/watch?v=5F_B905M1jY" target="_blank">Binary Addition Tutorial</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="data-representation-lesson-3">Lesson 3: Characters</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the use of binary codes to represent characters.</li>
+                <li>Understand the term ‘character set’.</li>
+                <li>Explain the relationship between the number of bits per character in a character set, and the number of characters that can be represented using: ASCII, Extended ASCII, Unicode.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider how to store letters using binary.</li>
+                <li><strong>Main Activity:</strong> Explain each character is a unique bit pattern. Discuss how many characters a character set needs to represent (bits required). Explain ASCII table (standard international keyboard, special characters, punctuation, space). Differentiate ASCII number '7' vs numeric binary '7'. Explain Extended ASCII (8 bits, 128 extra characters). Demonstrate ALT key combinations for characters. Hand out Worksheet 3, Task 1 and Task 2. Discuss programming with text and numbers (concatenation, type conversion). Explain Unicode (8, 16, or 32 bits, Chinese/Japanese characters). Complete Worksheet 3, Task 3.</li>
+                <li><strong>Plenary:</strong> Review key concepts. Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Localisation Specialist, Font Designer, Natural Language Processing Engineer – understanding character sets is vital for global software and text processing.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 3 Characters</li>
+                <li>Topic 3 Worksheet 3</li>
+                <li>Topic 3 Worksheet 3 Answers</li>
+                <li>Topic 3 Homework 3</li>
+                <li>Topic 3 Homework 3 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="data-representation-lesson-4">Lesson 4: Images</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand how a bitmap graphic is made up of individual pixels.</li>
+                <li>Explain how each pixel is represented in binary.</li>
+                <li>Understand that the number of bits per pixel determines the number of available colours for an image.</li>
+                <li>Explain the need for image metadata.</li>
+                <li>Explain the relationship between file size and image resolution.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss image file formats (JPG, GIF, PNG, SVG). Define 'pixel'.</li>
+                <li><strong>Main Activity:</strong> Explain bitmap (raster) images and image resolution (PPI, DPI). Discuss creating an image (monochrome, 1 bit per pixel, file size calculation). Explain colour or bit depth (more colours = more bits per pixel). Discuss relationship between colours/resolution and file size. Hand out Worksheet 4, Task 1. Discuss PBM monochrome images (editing pixel values in Notepad/Photoshop). Complete Worksheet 4, Task 2. Discuss colours and looking at colour values (RGB sub-pixels, Hexadecimal values). Explain why file sizes don't always add up (metadata, cluster sizes - beyond GCSE).</li>
+                <li><strong>Plenary:</strong> Fill in the gaps with keywords. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Graphic Designer, Web Designer, Photographer, Game Artist – skills in digital image manipulation and understanding image properties are essential.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 4 Images</li>
+                <li>Topic 4 Worksheet 4</li>
+                <li>Topic 4 Worksheet 4 Answers</li>
+                <li>Topic 4 Homework 4</li>
+                <li>Topic 4 Homework 4 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="data-representation-lesson-5">Lesson 5: Sound</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand how sound is sampled and stored in digital form.</li>
+                <li>Be able to represent a short sound file in binary.</li>
+                <li>Explain how sampling intervals and resolution affect the size of a sound file using the terms: Sample rate, Bit depth.</li>
+                <li>Explain the trade-off between file size and the quality of playback.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider how computers store sound as 0s and 1s (sound card, ADC/DAC, computational thinking).</li>
+                <li><strong>Main Activity:</strong> Explain Analogue to Digital Converters (ADC) and Digital to Analogue Converters (DAC). Explain sound sampling (waveform, frequency points, sample points, sample resolution, bit depth). Demonstrate plotting sampling points. Compare graphs with different sampling resolutions/rates. Complete Worksheet 5, Task 1. Summarise digitised sound quality (frequency/bit-rate affecting file size). Complete Worksheet 5, Task 2. Discuss human hearing range. Introduce lossy compression (MP3, data loss not noticeable). Introduce lossless compression (no data loss, RLE). Discuss other file formats (WAV, CDs).</li>
+                <li><strong>Plenary:</strong> Test each other on key concepts. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Audio Engineer, Music Producer, Sound Designer for Games/Film, Podcast Editor – understanding digital audio principles is key.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 5 Sound</li>
+                <li>Topic 5 Worksheet 5</li>
+                <li>Topic 5 Worksheet 5 Answers</li>
+                <li>Topic 5 Homework 5</li>
+                <li>Topic 5 Homework 5 Answers</li>
+                <li><a href="https://www.youtube.com/watch?v=aTQS25w8kZo" target="_blank">Link Sound audibility test</a></li>
+                <li><a href="https://www.youtube.com/watch?v=aTQS25w8kZo" target="_blank">Link Mosquito</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="data-representation-lesson-6">Lesson 6: Compression</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Explain the need for compression.</li>
+                <li>Describe the difference between lossy and lossless compression.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider huge data storage for video (HD video, compression benefits).</li>
+                <li><strong>Main Activity:</strong> Explain compression techniques (lossy vs lossless). Discuss lossy image compression (algorithms, data loss not important for images/sound, digital artefacts). Explain why lossy cannot be used for text/code. Explain lossless image compression (Run Length Encoding - RLE). Discuss text compression (lossless, finding patterns, dictionary compression). Hand out Worksheet 6, Task 1. Discuss advantages of compression in data transfer (time, data allowances). Play music track comparison. Complete Worksheet 6, Task 2. Discuss benefits of compression and buffering. Discuss file formats (lossy/lossless examples). Complete Worksheet 6, Task 3.</li>
+                <li><strong>Plenary:</strong> Explain key concepts to each other. Assign Homework 6.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 6 tasks.</li>
+                <li>Homework 6.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Network Engineer, Cloud Storage Specialist, Multimedia Developer – understanding data compression is vital for efficient data handling and transmission.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 6 Compression</li>
+                <li>Topic 6 Worksheet 6</li>
+                <li>Topic 6 Worksheet 6 Answers</li>
+                <li>Topic 6 Homework 6</li>
+                <li>Topic 6 Homework 6 Answers</li>
+                <li><a href="https://www.youtube.com/watch?v=aTQS25w8kZo" target="_blank">Music comparison link</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="data-representation-assessment">Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Apply their knowledge in answers to a range of questions.</li>
+                <li>Identify areas of strength and any gaps in their understanding of impacts of digital technology on wider society.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Students complete the Assessment Test. Answers available in Unit 2 Assessment Test Answers sheet. Test can be printed or answered electronically.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Unit 2 Assessment Test.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces fundamental computer science knowledge applicable to all tech-related careers.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Unit 2 Assessment Test.docx</li>
+                <li>Unit 2 Assessment Test Answers.docx</li>
+            </ul>
+        </div>
+
+        <div id="computational-thinking-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Computational Thinking and Logic</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit introduces students to computational thinking and logic, covering problem-solving methods through a series of six topics and a final assessment.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="computational-thinking-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="computational-thinking-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="computational-thinking-lesson-1">Lesson 1: Logical Thinking</option>
+                    <option value="computational-thinking-lesson-2">Lesson 2: Logic Gates</option>
+                    <option value="computational-thinking-lesson-3">Lesson 3: Algorithmic Thinking</option>
+                    <option value="computational-thinking-lesson-4">Lesson 4: Algorithmic Thinking 2</option>
+                    <option value="computational-thinking-lesson-5">Lesson 5: Abstraction</option>
+                    <option value="computational-thinking-lesson-6">Lesson 6: Decomposition</option>
+                    <option value="computational-thinking-assessment">Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="computational-thinking-lesson-1">Lesson 1: Logical Thinking</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Be able to ask logical questions to solve problems.</li>
+                <li>Know the common Boolean operators: AND, OR, NOT.</li>
+                <li>Understand how Boolean operators can be represented in written expressions and Venn diagrams.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Play "Guess Who?" to introduce logical questioning.</li>
+                <li><strong>Main Activity:</strong> Introduce computational thinking (logical, algorithmic, decomposition, abstraction). Discuss Boolean expressions (CamelCase, `NOT hasGlasses AND hasFacialHair`). Emphasise asking good questions to halve suspects. Stress planning before programming. Hand out Worksheet 1, Task 1. Discuss Venn diagrams (ξ, NOT (Cats OR Dogs)) and Boolean expressions. Discuss "Your dream holiday" using Boolean operators. Complete Worksheet 1, Task 2. Introduce logical deduction (premises to conclusion). Discuss logical thinking for Computer Science. Go through deductions. Complete Worksheet 1, Task 3. Solve logical puzzles. Complete Worksheet 1, Task 4.</li>
+                <li><strong>Plenary:</strong> Discuss starter questions in pairs. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Developer, Data Analyst, Business Analyst, Management Consultant – all benefit from strong logical reasoning and problem-solving skills.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 1 Logical thinking</li>
+                <li>Lesson 1 Worksheet 1</li>
+                <li>Lesson 1 Worksheet 1 Answers</li>
+                <li>Lesson 1 Homework 1</li>
+                <li>Lesson 1 Homework 1 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="computational-thinking-lesson-2">Lesson 2: Logic Gates</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand how logic is used in different situations.</li>
+                <li>Know different logic gates including: AND gates, OR gates, NOT gates.</li>
+                <li>Be able to complete truth tables for logic gates and circuits with up to three inputs.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Complete a truth table for a logical thinking puzzle. Hand out Worksheet 2, Task 1.</li>
+                <li><strong>Main Activity:</strong> Discuss two states (TRUE/FALSE, 1/0, on/off) in Boolean logic. Introduce 'logic pipes' (AND pipe, OR pipe, faulty logic pipe/NOT gate). Complete Worksheet 2, Task 2. Introduce real logic gates (AND, OR, NOT) and simple circuits (demonstrate with Logic.ly). Complete truth table for an AND gate. Discuss logic circuits solving real-life problems (CPU, binary states). Complete Worksheet 2, Task 3.</li>
+                <li><strong>Plenary:</strong> Determine light on/off for a full circuit with three gates and name each gate. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Physics/Science:</strong> Basic circuit diagrams and symbols.</li>
+                <li><strong>Careers:</strong> Electrical Engineer, Computer Hardware Engineer, Robotics Engineer – understanding logic gates is fundamental to designing and troubleshooting digital circuits.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 2 Logic gates</li>
+                <li>Lesson 2 Worksheet 2</li>
+                <li>Lesson 2 Homework 2</li>
+                <li>Lesson 2 Homework 2 Answers</li>
+                <li><a href="https://logic.ly/demo" target="_blank">Logic.ly Demo</a> (Online logic gate simulator)</li>
+            </ul>
+            <hr>
+
+            <h3 id="computational-thinking-lesson-3">Lesson 3: Algorithmic Thinking</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand what an algorithm is.</li>
+                <li>Create a sequence of instructions to achieve a goal.</li>
+                <li>Understand how loops can be used to reduce the amount of code required for a solution.</li>
+                <li>Understand how nested loops can be used to improve solutions further.</li>
+                <li>Be able to refine algorithms to reduce the number of instructions required.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Construct an algorithm for making a pancake.</li>
+                <li><strong>Main Activity:</strong> Introduce algorithms as key to computational thinking. Discuss navigation algorithm (robot in maze, picking up crates). Identify and use repetition (loops) in instructions. Hand out Worksheet 3, Task 1. Discuss and implement nested loops for further repetition. Complete Worksheet 3, Task 2. Show "Robot waiters" video. Discuss and create an algorithm for "The waiting game". Complete Worksheet 3, Task 3. Discuss adapting algorithms for changes (e.g., new table, IF statement). Emphasise evaluating algorithm elegance. Complete Worksheet 3, Task 4.</li>
+                <li><strong>Plenary:</strong> Consider using repetition and nested loops for dance group instructions. Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Developer, Game Programmer, Automation Engineer, Logistics Manager – all involve designing efficient step-by-step processes.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 3 Algorithmic thinking</li>
+                <li>Lesson 3 Worksheet 3</li>
+                <li>Lesson 3 Homework 3</li>
+                <li>Lesson 3 Homework 3 Answers</li>
+                <li><a href="https://www.youtube.com/watch?v=M7n__YsAl5o" target="_blank">Robot Waiters Video</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="computational-thinking-lesson-4">Lesson 4: Algorithmic Thinking 2</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Know the difference between lossy and lossless compression.</li>
+                <li>Create algorithms for compressing data.</li>
+                <li>Know how knowledge of letter frequency can help with compressing text.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Brainstorm ways to compress a famous phrase.</li>
+                <li><strong>Main Activity:</strong> Introduce lossy vs lossless compression. Explore lossy compression for text (demonstrate concept, create algorithm). Hand out Worksheet 4, Task 1. Discuss Locked-in syndrome and a blinking communication exercise. Discuss using letter frequency to improve communication efficiency. Complete Worksheet 4, Task 2. Introduce binary trees for compression (mention Huffman coding). Find words represented by binary trees. Complete Worksheet 4, Task 3. Calculate bit savings for compressed text (ASCII vs binary tree). Discuss the need for compression in data transfer (HD video, Netflix). Complete Worksheet 4, Task 4.</li>
+                <li><strong>Plenary:</strong> Discuss different compression algorithms and their effectiveness. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Biology/PSHE:</strong> Discussion of Locked-in syndrome and ethics.</li>
+                <li><strong>Careers:</strong> Data Compression Engineer, Multimedia Specialist, Telecommunications Engineer – understanding efficient data handling is crucial.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 4 Algorithmic Thinking 2</li>
+                <li>Lesson 4 Worksheet 4</li>
+                <li>Lesson 4 Homework 4</li>
+                <li>Lesson 4 Homework 4 Answers</li>
+                <li><a href="https://en.wikipedia.org/wiki/Huffman_coding" target="_blank">Wikipedia: Huffman coding</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="computational-thinking-lesson-5">Lesson 5: Abstraction</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand how abstractions are used in everyday life.</li>
+                <li>Be able to create abstractions for different purposes.</li>
+                <li>Understand how networks are used to make an abstraction of a maze.</li>
+                <li>Understand network (graph) theory terms including: Nodes, Edges.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Drawing game (partner draws word, other guesses) to introduce abstraction.</li>
+                <li><strong>Main Activity:</strong> Define abstraction as removing unnecessary details (problem dictates details). Discuss room plans as an abstraction (layout, size, builder's needs). Hand out Worksheet 5, Task 1. Discuss estate navigation for a delivery van (OpenStreetMap, house names, robot interpretation). Complete Worksheet 5, Task 2. Discuss maze abstraction (lines for walls). Introduce network/graph theory (nodes, edges, Dijkstra’s Shortest Path algorithm). Create nodes for maze start/end, dead ends, decisions. Complete Worksheet 5, Task 3.</li>
+                <li><strong>Plenary:</strong> Consider abstraction for cycle routes (OpenStreetMap, important features). Complete remaining questions. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Geography:</strong> Map reading, understanding spatial data.</li>
+                <li><strong>Careers:</strong> Software Architect, Systems Designer, Urban Planner, Logistics Coordinator – all involve simplifying complex systems into manageable models.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 5 Abstraction</li>
+                <li>Lesson 5 Worksheet 5</li>
+                <li>Lesson 5 Homework 5</li>
+                <li>Lesson 5 Homework 5 Answers</li>
+                <li><a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="computational-thinking-lesson-6">Lesson 6: Decomposition</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand how decomposition can be used to break down problems into more manageable components.</li>
+                <li>Be able to break down a large Computing problem into its parts and understand: how images are converted to binary using pixels, how text is converted to binary using ASCII, how data is broken up into packets, how data is sent through a network.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> "Rate My Review" (how to send message/image via phone/computer) to introduce underlying processes.</li>
+                <li><strong>Main Activity:</strong> Define decomposition (breaking large problems into smaller parts). Discuss converting black and white bitmap images (pixels, 0/1). Hand out Worksheet 6, Task 1. Discuss adding a caption to an image (ASCII conversion). Complete Worksheet 6, Task 2. Discuss transmitting data through a network (packets, multiple routes, packet numbers). Complete Worksheet 6, Task 3 (assuming correction from original guide's Task 2 repetition). Discuss putting it all together (rebuilding message/image). Conduct Task 4 and 5 (send message through class 'network').</li>
+                <li><strong>Plenary:</strong> Revisit starter question to assess learning depth. Reiterate decomposition benefits. Assign Homework 6.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 6 tasks.</li>
+                <li>Homework 6.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Engineer, Project Manager, Systems Analyst – all require breaking down complex problems into smaller, manageable tasks.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 6 Rate My Review</li>
+                <li>Lesson 6 Worksheet 6</li>
+                <li>Lesson 6 Homework 6</li>
+                <li>Lesson 6 Homework 6 Answers</li>
+                <li>Lesson 6 Blank packets for printing (physical resource)</li>
+            </ul>
+            <hr>
+
+            <h3 id="computational-thinking-assessment">Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Apply their knowledge in answers to a range of questions.</li>
+                <li>Demonstrate their performance on practical tasks in the unit.</li>
+                <li>Identify areas of strength and any gaps in their understanding.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Students complete the Multi-choice assessment.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Multi-choice assessment.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces fundamental computer science knowledge applicable to all tech-related careers.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Computational Thinking Final Assessment Test.docx</li>
+                <li>Computational Thinking Final Assessment Test with Answers.docx</li>
+            </ul>
+        </div>
+
+        <div id="understanding-computers-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Understanding Computers</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit covers the basic principles of computer architecture, binary, and the history and convergence of communication technologies.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="understanding-computers-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="understanding-computers-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="understanding-computers-lesson-1">Lesson 1: Elements of a Computer System</option>
+                    <option value="understanding-computers-lesson-2">Lesson 2: The CPU</option>
+                    <option value="understanding-computers-lesson-3">Lesson 3: Understanding Binary</option>
+                    <option value="understanding-computers-lesson-4">Lesson 4: Binary Addition</option>
+                    <option value="understanding-computers-lesson-5">Lesson 5: Storage Devices</option>
+                    <option value="understanding-computers-lesson-6">Lesson 6: Convergence and New Technologies</option>
+                    <option value="understanding-computers-assessment">Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="understanding-computers-lesson-1">Lesson 1: Elements of a Computer System</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Distinguish between hardware and software.</li>
+                <li>Identify input, output and storage devices.</li>
+                <li>Name at least five pieces of software.</li>
+                <li>Understand what happens at the “Process” stage.</li>
+                <li>Suggest appropriate input and output devices for a given scenario.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Ask students to define a computer.</li>
+                <li><strong>Main Activity:</strong> Review definitions, discuss hardware vs. software. Elicit examples of I/O and storage devices. Use Worksheet 1a or PowerPoint to identify devices and software. Discuss Input-Process-Output sequence; what happens at 'Process' stage. Alternative explanation using human senses. Pupils complete Activity 1 on Worksheet 1b. Review answers as a class.</li>
+                <li><strong>Plenary:</strong> Analyse supermarket self-checkout system (IPO, storage). Discuss Chip and PIN. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1a & 1b tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> IT Support Technician, Computer Hardware Engineer, Systems Administrator – understanding computer components is foundational for these roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: L1 Elements of a computer system</li>
+                <li>UCom Worksheet 1a Input, Output and Storage Devices</li>
+                <li>UCom Worksheet 1a Answers</li>
+                <li>UCom Worksheet 1b Inputs, Processes and Outputs</li>
+                <li>UCom Worksheet 1b Answers</li>
+                <li>UCom Homework 1</li>
+                <li>UCom Homework 1 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="understanding-computers-lesson-2">Lesson 2: The CPU</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Draw a block diagram of the main components of a computer: input, processor, output and storage.</li>
+                <li>Explain what RAM and ROM are used for.</li>
+                <li>Distinguish between main memory and permanent storage devices.</li>
+                <li>Name the three stages in the Fetch Execute Cycle.</li>
+                <li>Define Hz, MHz and GHz and state how these relate to the speed of the processor.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Identify internal computer parts (using old computer or webcam).</li>
+                <li><strong>Main Activity:</strong> Discuss motherboard, processor chip, RAM chip, graphics card, hard disk, data bus. Show/reproduce block diagram of computer components. Explain main memory (RAM) vs. backing storage (hard drive). Discuss file storage, temporary storage, data loss on power off, program loading. Explain Fetch-Decode-Execute (FDE) cycle (act out). Discuss factors affecting speed (processor, memory access). Define Hz, kHz, MHz, GHz (use online metronome). Pupils use Worksheet 2 to record processor/storage specs. Discuss RAM vs. ROM (volatility, content alteration). Explain computer startup (ROM loads OS).</li>
+                <li><strong>Plenary:</strong> Discuss memory access speed, dual-core processors (extension). Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Computer Engineer, Electronics Engineer, Systems Architect – understanding CPU and memory functions is core to designing and optimising computer systems.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: UCom L2 The CPU</li>
+                <li>FDE Cycle Resource Sheet</li>
+                <li>UCom Worksheet 2 Memory and Storage</li>
+                <li>UCom Homework 2</li>
+                <li>UCom Homework 2 Answers</li>
+                <li><a href="https://www.metronomeonline.com/" target="_blank">Online Metronome</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="understanding-computers-lesson-3">Lesson 3: Understanding Binary</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>State why all data is represented in binary in a computer.</li>
+                <li>Define a Bit, Byte, Kb, Mb and Gb.</li>
+                <li>Convert decimal (denary) integers to binary numbers.</li>
+                <li>Convert binary numbers to decimal (denary) integers.</li>
+                <li>Look up from a table the bit pattern for a given character.</li>
+                <li>Show how characters can be represented in ASCII.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Explain computers use binary, not letters. Discuss decimal system (base 10).</li>
+                <li><strong>Main Activity:</strong> Explain binary (0 and 1, On/Off, switches, unique codes). Show video on binary to decimal conversion. Work out binary 1-10 (pattern). Explain bits and bytes (1000 vs 1024 definition). Demonstrate bit combinations doubling. Translate binary to denary (compare with decimal system). Class exercise: decimal 1-10 to binary. Pupils complete Worksheet 3a, Challenge 1. Convert decimal to binary (reverse operation). Complete Challenges 2 and 3. Introduce ASCII (keyboard characters to binary patterns, 7-bit vs 8-bit, uppercase/lowercase). Use UCom ASCII codes table. Differentiate numeric '5' vs character '5'. Use Link Text to ASCII and Binary Converter. Discuss Computer Science Unplugged. Demonstrate Alt key for ASCII characters.</li>
+                <li><strong>Plenary:</strong> Complete Challenges 1 and 2 on PowerPoint. Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3a tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Programmer, Network Engineer, Data Analyst – understanding binary is fundamental to how computers process and store all information.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide UCom L3 Understanding Binary</li>
+                <li>UCom Worksheet 3a Binary to Decimal Conversion</li>
+                <li>UCom Worksheet 3a Answers</li>
+                <li>UCom ASCII codes</li>
+                <li>UCom Homework 3</li>
+                <li>UCom Homework 3 Answers</li>
+                <li><a href="https://www.youtube.com/watch?v=VLzCg5YlQ7Y" target="_blank">Binary Video</a></li>
+                <li><a href="https://www.browserling.com/tools/text-to-ascii" target="_blank">Text to ASCII and Binary Converter</a></li>
+                <li><a href="http://csunplugged.org/" target="_blank">Computer Science Unplugged</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="understanding-computers-lesson-4">Lesson 4: Binary Addition</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Identify a binary number as odd or even.</li>
+                <li>Understand the effect of adding an extra zero to a binary number.</li>
+                <li>Add two binary numbers (each no more than eight binary digits).</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Revise binary basics (decimal 1-10 to binary). How to identify odd/even binary. Effect of adding zero to binary string.</li>
+                <li><strong>Main Activity:</strong> Introduce simple binary addition. Remind denary addition (carrying). Explain five simple binary addition rules (0+0=0, 0+1=1, 1+0=1, 1+1=0 carry 1, 1+1+1=1 carry 1). Go through worked example. Use Link Binary Addition Tutorial. Hand out Worksheet 4 Binary Addition.</li>
+                <li><strong>Plenary:</strong> Review worksheet answers. Discuss overflow errors (numbers > 255). How computers store larger numbers (4 or 8 bytes). Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Electrical Engineer, Computer Hardware Engineer, Cryptographer – understanding binary arithmetic is crucial for designing digital circuits and secure systems.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide UCom L4 Binary Addition</li>
+                <li>UCom Worksheet 4 Binary Addition</li>
+                <li>UCom Worksheet 4 Answers</li>
+                <li>UCom Homework 4 Binary Addition</li>
+                <li>UCom Homework 4 Answers</li>
+                <li><a href="https://www.youtube.com/watch?v=5F_B905M1jY" target="_blank">Binary Addition Tutorial</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="understanding-computers-lesson-5">Lesson 5: Storage Devices</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>State the typical capacities, strengths and weaknesses of different storage devices.</li>
+                <li>Describe how data is stored on a CD.</li>
+                <li>Describe how 0s and 1s are represented by pits and lands on a CD.</li>
+                <li>Name three types of optical storage device.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Identify storage devices (including floppy disk). Discuss data units and capacities. Pupils use Worksheet 5a to record advantages/disadvantages of storage devices (research capacities).</li>
+                <li><strong>Main Activity:</strong> Focus on principles of data storage on Optical Media (CDs). Elicit difference between CD-ROM, CD-R, CD-RW. Show how data is written to CD-R/RW (laser light, pits 'burnt'). Explain how pits/lands represent 0s and 1s when read by laser (strong reflection = 0, poor reflection = 1). Discuss CD creation (spiral track). Interpret data (ASCII conversion, e.g., 'J'). Show electron microscope image of CD surface. Pupils complete Worksheet 5b (first done as class). Refer back to storage devices, discuss similar principles for hard disk.</li>
+                <li><strong>Plenary:</strong> Review worksheet. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5a & 5b tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Data Storage Engineer, Cloud Infrastructure Engineer, IT Administrator – understanding storage technologies is crucial for managing and maintaining digital data.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide UCom L5 Storage Devices</li>
+                <li>UCom Worksheet 5a Storage Devices</li>
+                <li>UCom Worksheet 5a Answers</li>
+                <li>UCom Worksheet 5b Reading from a CD</li>
+                <li>UCom Worksheet 5b Answers</li>
+                <li>UCom ASCII Codes</li>
+                <li>UCom Homework 5</li>
+                <li>UCom Homework 5 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="understanding-computers-lesson-6">Lesson 6: Convergence and New Technologies</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Review the history and development of communication.</li>
+                <li>Understand how modern communication and computing devices combine multiple technologies.</li>
+                <li>Discuss the different ways and applications in which modern technology is used.</li>
+                <li>Discuss future uses of technology and the pace of change (Moore’s Law).</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Introduce idea of technological change. Show timeline of communication devices (letter to 4G Smartphone). Discuss convergence (Smartphone example).</li>
+                <li><strong>Main Activity:</strong> Pupils in pairs/groups discuss effects of changing technology (Worksheet 6). Discuss future/emerging technologies (RFID, contactless payments). Discuss "Information Age" article (Link Telegraph Information Age). Introduce Moore’s Law (transistors double every two years).</li>
+                <li><strong>Plenary:</strong> Show "Shift Happens" video. Assign Homework 6.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 6 tasks.</li>
+                <li>Homework 6.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Technology Consultant, Product Manager, Futurist, Innovation Specialist – roles focused on understanding and predicting technological trends and their impact.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide UCom L6 Convergence and New Technologies</li>
+                <li>UCom Worksheet 6 Changing Technologies</li>
+                <li>UCom Homework 6</li>
+                <li>UCom Homework 6 Answers</li>
+                <li><a href="https://www.telegraph.co.uk/technology/internet/10702636/Welcome-to-the-Information-Age.html" target="_blank">Link Telegraph Information Age</a></li>
+                <li><a href="https://www.youtube.com/watch?v=YmwwlV_4q8k" target="_blank">Link Shift Happens</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="understanding-computers-assessment">Lesson 7: Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Be able to apply their knowledge in answers to a range of questions.</li>
+                <li>Be able to highlight areas of strength and any gaps in their understanding of computers.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Pupils complete the Assessment Test. Answers available in UCom Assessment Answers sheet. Test can be printed or answered in document (highlighting/bolding correct answer). Pupils might upload offline test for online teacher assessment (MLEs).</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Assessment Test.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces fundamental computer science knowledge applicable to all tech-related careers.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>UCom Assessment Test</li>
+                <li>UCom Assessment Answers</li>
+            </ul>
+        </div>
+
+        <div id="intro-python-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Introduction to Python</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit introduces students to Python, covering programming fundamentals, data types, selection, loops, and basic algorithms.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="intro-python-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="intro-python-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="intro-python-lesson-1">Lesson 1: The Basics</option>
+                    <option value="intro-python-lesson-2">Lesson 2: Data Types and Arithmetic</option>
+                    <option value="intro-python-lesson-3">Lesson 3: Selection</option>
+                    <option value="intro-python-lesson-4">Lesson 4: Writing Algorithms</option>
+                    <option value="intro-python-lesson-5">Lesson 5: While Loops</option>
+                    <option value="intro-python-lesson-6">Lesson 6: Searching</option>
+                    <option value="intro-python-assessment">Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="intro-python-lesson-1">Lesson 1: The Basics</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand what Python is and some applications for it.</li>
+                <li>Be able to program a sequence in Python including: The use of the interactive mode, The use of script mode, The use of input and print functions.</li>
+                <li>Understand what a syntax error is.</li>
+                <li>Be able to interpret an error message.</li>
+                <li>Be able to create and use variables with meaningful variable names.</li>
+                <li>Understand the purpose and be able to use comments.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider order of instruction execution (sequence).</li>
+                <li><strong>Main Activity:</strong> Discuss Python's popularity and applications. Explain interactive vs. script mode. Demonstrate "Hello World" program. Discuss making and correcting syntax errors, interpreting error messages (line number). Demonstrate creating and running programs in script mode, loading/editing. Explain variables (purpose, naming rules). Emphasise comments for human readability. Hand out Worksheet 1, Task 1.</li>
+                <li><strong>Plenary:</strong> Identify syntax errors in simple code (pairs/class discussion). Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Junior Developer, Software Tester, IT Support – foundational programming skills are essential for many tech roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 1 Strings and variables</li>
+                <li>Lesson 1 Worksheet 1</li>
+                <li>Lesson 1 Worksheet 1 Answers</li>
+                <li>Lesson 1 Homework 1</li>
+                <li>Lesson 1 Homework 1 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="intro-python-lesson-2">Lesson 2: Data Types and Arithmetic</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the data types string, integer and float.</li>
+                <li>Be able to convert between data types.</li>
+                <li>Be able to use the round function.</li>
+                <li>Be able to make use of assignment.</li>
+                <li>Be able to program calculations.</li>
+                <li>Understand order of precedence (BIDMAS).</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Combine `print` and `input` for user input on same line (practice in interactive mode). Discuss "Animal" program (variables, strings, comments, output).</li>
+                <li><strong>Main Activity:</strong> Show combining input/output/assignment. Explain string concatenation (`+`), need for `str()` conversion. Discuss data types (string, integer, float), dynamic typing vs. explicit typing. Demonstrate consequences of incorrect data types (concatenating numbers). Explain assignment operator (`=`). Hand out Worksheet 2, Task 1. Discuss orders of precedence (BIDMAS). Explain arithmetic operators (`//`, `%`). Discuss Python's `round()` function (peculiarities compared to Maths). Complete Worksheet 2, Task 2 and Task 3.</li>
+                <li><strong>Plenary:</strong> Identify errors in code. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Maths:</strong> BIDMAS, arithmetic operations, rounding.</li>
+                <li><strong>Careers:</strong> Financial Analyst, Data Entry Specialist, Scientific Researcher – roles requiring accurate data handling and calculations.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 2 Data types and arithmetic</li>
+                <li>Lesson 2 Worksheet 2</li>
+                <li>Lesson 2 Worksheet 2 Answers</li>
+                <li>Lesson 2 Homework 2</li>
+                <li>Lesson 2 Homework 2 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="intro-python-lesson-3">Lesson 3: Selection</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Use selection statements `if`, `elif` and `else` in a program.</li>
+                <li>Make use of conditions in `if` statements.</li>
+                <li>Understand and be able to use the comparison operators `>`, `>=`, `<`, `<=`, `==`, `!=`.</li>
+                <li>Be able to indent code correctly to define blocks of code.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss what provided code does (even without `IF` knowledge).</li>
+                <li><strong>Main Activity:</strong> Explain `IF`, `THEN`, `ELSE` syntax (condition, colon). Go through `IF` program example. Introduce comparison operators. Explain code indentation (tab key, syntax/logic errors). Brainstorm uses for `IF` statements. Hand out Worksheet 3, Task 1. Explain `ELIF` (optional, multiple uses) and `ELSE` (catches all other situations). Discuss creating a speed radar detector program (pseudocode/notes). Complete Worksheet 3, Task 2.</li>
+                <li><strong>Plenary:</strong> Adapt age-determining program for three age groups (discussion of different approaches). Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Developer, Game Programmer, Quality Assurance Engineer – selection logic is fundamental to creating dynamic and responsive programs.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 3 Selection</li>
+                <li>Lesson 3 Worksheet 3</li>
+                <li>Lesson 3 Worksheet 3 Answers</li>
+                <li>Lesson 3 Homework 3</li>
+                <li>Lesson 3 Homework 3 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="intro-python-lesson-4">Lesson 4: Writing Algorithms</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Be able to write algorithms in pseudocode.</li>
+                <li>Identify the different types of programming errors and how to fix them: syntax errors, run-time errors, logic errors.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss pseudocode algorithm, what it does, and its purpose (understandable across languages).</li>
+                <li><strong>Main Activity:</strong> Discuss pseudocode styles (symbols like `==` vs `=`). Explain how to insert symbols in Word. Translate pseudocode into Python program. Hand out Worksheet 4, Task 1. Discuss syntax errors (common, frustrating, helpful feedback). Discuss run-time errors (divide by zero, permissions, stack overflows). Discuss logic errors (program runs but doesn't work as intended, hard to debug). Complete Worksheet 4, Task 2.</li>
+                <li><strong>Plenary:</strong> Recap pseudocode (differences from code). Recall three types of errors. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Engineer, Technical Writer, Debugger, Quality Assurance Tester – skills in algorithmic thinking and debugging are critical for software development and maintenance.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 4 Writing algorithms</li>
+                <li>Lesson 4 Worksheet 4</li>
+                <li>Lesson 4 Worksheet 4 Answers</li>
+                <li>Lesson 4 Homework 4</li>
+                <li>Lesson 4 Homework 4 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="intro-python-lesson-5">Lesson 5: While Loops</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Make use of repetition using a `WHILE` loop.</li>
+                <li>Use an `if` statement within a `while` loop.</li>
+                <li>Be able to use a random number function.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss flow diagram algorithm. Explain `!=` (not equal).</li>
+                <li><strong>Main Activity:</strong> Match flow diagram parts to Python code (conciseness). Discuss Example 2. Explain 'incrementing' (`variableName = variableName + 1`). Discuss password entry system code. Explain generating random numbers (simulations, games). Go through `random.randint(1,6)` code. Emphasise `import` statement. Hand out Worksheet 5, Task 1.</li>
+                <li><strong>Plenary:</strong> Explain each line of code (whole class/pairs). Discuss `while moreRandomNumbers` vs `while moreRandomNumbers == True` (efficiency, readability). Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Game Developer, Simulation Modeler, Data Scientist – using loops and randomisation is common in creating dynamic and unpredictable systems.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 5 While loops</li>
+                <li>Lesson 5 Worksheet 5</li>
+                <li>Lesson 5 Worksheet 5 Answers</li>
+                <li>Lesson 5 Homework 5</li>
+                <li>Lesson 5 Homework 5 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="intro-python-lesson-6">Lesson 6: Searching</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand two search algorithms: Linear search, Binary search.</li>
+                <li>Compare the efficiency of each algorithm.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Play "guess the number" game (introduce binary search concept).<br><strong>Main Activity:</strong> Introduce linear search (algorithm, Python code - depth based on class). Introduce binary search (algorithm, Python code). Compare efficiency of linear vs. binary search (e.g., for number 19). Discuss uses of binary searches. Hand out Worksheet 6, Task 1.</li>
+                <li><strong>Plenary:</strong> Recap steps and efficiency of each algorithm. Assign Homework 6.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 6 tasks.</li>
+                <li>Homework 6.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Database Administrator, Information Retrieval Specialist, Software Engineer – understanding search algorithms is fundamental for efficient data access.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 6 Searching</li>
+                <li>Lesson 6 Worksheet 6</li>
+                <li>Lesson 6 Worksheet 6 Answers</li>
+                <li>Lesson 6 Homework 6</li>
+                <li>Lesson 6 Homework 6 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="intro-python-assessment">Lesson 7: Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Complete the assessment questions.</li>
+                <li>Complete the portfolio.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Hand out Python Assessment Portfolio. Pupils complete all parts. Assessment can be completed on screen.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Python Assessment Portfolio.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces foundational programming skills applicable to almost all tech careers, from software development to data science.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Python Assessment Portfolio</li>
+                <li>Python Assessment Portfolio Answers</li>
+            </ul>
+        </div>
+
+        <div id="networks-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Networks</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This theoretical unit covers the basic principles and architecture of local and wide area networks, including web addresses, IP addresses, client-server models, cloud computing, and basic encryption techniques.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="networks-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="networks-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="networks-lesson-1">Lesson 1: The Internet</option>
+                    <option value="networks-lesson-2">Lesson 2: Connectivity</option>
+                    <option value="networks-lesson-3">Lesson 3: Topologies</option>
+                    <option value="networks-lesson-4">Lesson 4: Network Types</option>
+                    <option value="networks-lesson-5">Lesson 5: Encryption</option>
+                    <option value="networks-lesson-6">Lesson 6: Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="networks-lesson-1">Lesson 1: The Internet</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand what the Internet and World Wide Web are and how they differ.</li>
+                <li>Be able to identify the components of a web address.</li>
+                <li>Understand what a protocol is and the use of HTTP for transfer of web pages.</li>
+                <li>Understand how packet switching works and be able to simulate it to send information.</li>
+                <li>Understand the purpose of DNS servers.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss pupils' perception of the Internet vs. World Wide Web.</li>
+                <li><strong>Main Activity:</strong> Discuss web address components (URL, protocol, subdomain, domain, directory, filename). Explain top-level domains. Hand out Worksheet 1, Task 1. Explain IP addresses (unique, internal private IPs). Discuss DNS servers (like telephone directory). Explain data packets (smaller units, various routes, packet numbers). Complete Worksheet 1, Task 2.</li>
+                <li><strong>Plenary:</strong> Review learning from the lesson, compare with starter. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Network Engineer, Web Developer, Cybersecurity Specialist – understanding internet infrastructure is key for these roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 1 The Internet</li>
+                <li>Lesson 1 Worksheet 1</li>
+                <li>Lesson 1 Worksheet 1 Answers</li>
+                <li>Lesson 1 Homework 1</li>
+                <li>Lesson 1 Homework 1 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="networks-lesson-2">Lesson 2: Connectivity</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the different types of network media (cables) including: Copper cable (twisted pair), fibre optic cable, coaxial cable, Wireless.</li>
+                <li>Bandwidth and how it affects file transfer time.</li>
+                <li>Be able to calculate the time taken to download files of different sizes at different bandwidths.</li>
+                <li>Understand why streaming video and audio uses buffering.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider trans-Atlantic cables (mid-1800s performance vs. modern).</li>
+                <li><strong>Main Activity:</strong> Discuss modern submarine cables (fibre optic, shielding, damage). Define bandwidth (Mbps, kbps, Gbps). Explain network media types (copper, fibre optic, coaxial, wireless). Discuss advantages/disadvantages of wireless connections (home networks). Hand out Worksheet 2, Task 1. Calculate download time (bits vs. bytes). Explain buffering (DVD example). Complete Worksheet 2, Task 2.</li>
+                <li><strong>Plenary:</strong> Review learning, compare with starter (add Wi-Fi). Discuss advantages/disadvantages of different media types. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Telecommunications Engineer, Network Administrator, Broadcast Engineer – roles focused on data transmission and infrastructure.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 2 Connectivity</li>
+                <li>Lesson 2 Worksheet 2</li>
+                <li>Lesson 2 Worksheet 2 Answers</li>
+                <li>Lesson 2 Homework 2</li>
+                <li>Lesson 2 Homework 2 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="networks-lesson-3">Lesson 3: Topologies</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the difference between LANs and WANs.</li>
+                <li>Be able to give examples of each type of network.</li>
+                <li>Know the hardware required to build a LAN.</li>
+                <li>Identify different network topologies including: Bus network, Star network.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss advantages and disadvantages of networks (consider security risks).</li>
+                <li><strong>Main Activity:</strong> Define LANs (home, school) and WANs (Internet). Discuss Network Interface Card (NIC). Explain network topologies (bus, star - layout, advantages/disadvantages). Explain routers (forward packets). Explain switches vs. hubs (data transmission). Hand out Worksheet 3, Task 1. Complete Worksheet 3, Task 2.</li>
+                <li><strong>Plenary:</strong> Recap terminology (LAN, WAN, topologies, hardware). Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Network Architect, IT Systems Administrator, Cloud Engineer – designing and managing network layouts is a core skill.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 3 Topologies</li>
+                <li>Lesson 3 Worksheet 3</li>
+                <li>Lesson 3 Worksheet 3 Answers</li>
+                <li>Lesson 3 Homework 3</li>
+                <li>Lesson 3 Homework 3 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="networks-lesson-4">Lesson 4: Network Types</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the terms: Client-server model, Peer to peer network, Cloud computing.</li>
+                <li>Be able to give some advantages and disadvantages for each of the above terms.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss what happens when a web address is entered (web browser, server).</li>
+                <li><strong>Main Activity:</strong> Explain Client-server model (server provides service to clients, examples, advantages/disadvantages). Explain Peer-to-peer networks (shared devices, file sharing like BitTorrent, advantages/disadvantages). Discuss Cloud computing (software via web browser, cloud storage). Hand out Worksheet 4, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Describe each network type. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Cloud Architect, DevOps Engineer, IT Consultant, Systems Analyst – understanding different network models is essential for modern IT infrastructure.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 4 Network types</li>
+                <li>Lesson 4 Worksheet 4</li>
+                <li>Lesson 4 Worksheet 4 Answers</li>
+                <li>Lesson 4 Homework 4</li>
+                <li>Lesson 4 Homework 4 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="networks-lesson-5">Lesson 5: Encryption</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the purpose of encryption.</li>
+                <li>Be able to use a Caesar cipher to encrypt and decrypt data.</li>
+                <li>Understand how encryption works with websites.</li>
+                <li>Be able to check the TLS/SSL certificate of websites.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss padlock symbol and HTTPS meaning.<br><strong>Main Activity:</strong> Explain encryption concepts (complicated algorithms, Caesar cipher as essential). Discuss symmetric encryption (same key). Explain Caesar cipher (example, encrypt/decrypt messages). Discuss encryption terminology (diagram, plaintext). Hand out Worksheet 5, Task 1. Crack a Caesar cipher (brute force attack, 25 keys). Discuss need for more complicated algorithms. Explain TLS/SSL certificates (prevent man-in-the-middle, verification by external organisations). Complete Worksheet 5, Task 2.</li>
+                <li><strong>Plenary:</strong> Review Caesar cipher and website encryption. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Cybersecurity Analyst, Cryptographer, IT Security Consultant – encryption is a core concept in securing data and communications.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 5 Encryption</li>
+                <li>Lesson 5 Worksheet 5</li>
+                <li>Lesson 5 Worksheet 5 Answers</li>
+                <li>Lesson 5 Homework 5</li>
+                <li>Lesson 5 Homework 5 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="networks-lesson-6">Lesson 6: Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Complete the assessment questions.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Students complete the Networks Assessment Test. Answers available in Networks Assessment Test Answers sheet. Test can be printed or answered in document (highlighting/bolding correct answer). Sections can be removed/skipped if material not covered.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Networks Assessment Test.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces understanding of network principles essential for various IT and cybersecurity roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Networks Assessment Test</li>
+                <li>Networks Assessment Test Answers</li>
+            </ul>
+        </div>
+
+        <div id="python-next-steps-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Python: Next Steps</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit builds on prior Python experience, covering FOR loops, lists, procedures, functions, and search algorithms, preparing pupils for GCSE Computer Science.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="python-next-steps-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="python-next-steps-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="python-next-steps-lesson-1">Lesson 1: The Basics</option>
+                    <option value="python-next-steps-lesson-2">Lesson 2: Loops</option>
+                    <option value="python-next-steps-lesson-3">Lesson 3: Lists</option>
+                    <option value="python-next-steps-lesson-4">Lesson 4: Procedures</option>
+                    <option value="python-next-steps-lesson-5">Lesson 5: Functions</option>
+                    <option value="python-next-steps-lesson-6">Lesson 6: Searching</option>
+                    <option value="python-next-steps-assessment">Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="python-next-steps-lesson-1">Lesson 1: The Basics</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Read and understand an existing Python program.</li>
+                <li>Recall different data types.</li>
+                <li>Recall how to use the <code>int()</code>, <code>float()</code> and <code>str()</code> functions to convert data types.</li>
+                <li>Write an <code>IF-ELSE</code> statement.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Describe program functionality (sequence).</li>
+                <li><strong>Main Activity:</strong> Discuss Python's popularity and applications. Explain interactive vs. script mode. Demonstrate "Hello World". Discuss making and correcting syntax errors, interpreting error messages (line number). Demonstrate creating and running programs in script mode, loading/editing. Explain variables (purpose, naming rules). Emphasise comments for human readability. Hand out Worksheet 1, Task 1. Introduce <code>IF</code> statements, comparison operators, indentation, colons. Complete Worksheet 1, Task 2.</li>
+                <li><strong>Plenary:</strong> Identify syntax errors in simple code (pairs/class discussion). Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Junior Developer, Software Tester, IT Support – foundational programming skills are essential for many tech roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 1 The Basics</li>
+                <li>Lesson 1 Worksheet 1</li>
+                <li>Lesson 1 Worksheet 1 Answers</li>
+                <li>Lesson 1 Homework 1</li>
+                <li>Lesson 1 Homework 1 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-next-steps-lesson-2">Lesson 2: Loops</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Use a <code>while</code> loop to repeat a section of code.</li>
+                <li>Use a <code>for</code> loop to repeat a section of code.</li>
+                <li>Be able to make an appropriate choice about which type of loop to use.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Speculate about <code>while</code> loops.<br><strong>Main Activity:</strong> Understand loops in flow diagrams. Translate flow diagram to <code>WHILE</code> loop (condition, flag variable). Complete Worksheet 2, Task 1. Compare <code>WHILE</code> and <code>FOR</code> loops (guessing game, exact iterations). Explain <code>FOR</code> loop syntax (range, 0-indexing, <code>len()</code>, 'i' as iterator). Complete Worksheet 2, Task 2 and Task 3.</li>
+                <li><strong>Plenary:</strong> Determine loops and output of given code (pairs). Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Developer, Game Programmer, Automation Engineer – loops are fundamental to creating efficient and repetitive processes in code.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 2 Loops</li>
+                <li>Lesson 2 Worksheet 2</li>
+                <li>Lesson 2 Worksheet 2 Answers</li>
+                <li>Lesson 2 Homework 2</li>
+                <li>Lesson 2 Homework 2 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-next-steps-lesson-3">Lesson 3: Lists</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Be able to create and use lists.</li>
+                <li>Be able to update values stored in a list.</li>
+                <li>Be able to append data to a list.</li>
+                <li>Be able to use a <code>FOR</code> loop to iterate through a list.</li>
+                <li>Understand the advantage of using a list over many single variables.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider code length for many variables (e.g., 10,000 players).<br><strong>Main Activity:</strong> Introduce lists (Python vs arrays, mixed data types). Predict program output. Explain list access (using <code>FOR</code> loop). Explain updating list elements. Use <code>FOR</code> loops with lists (<code>len()</code> function). Explain appending items to lists (fixed length vs lists). Complete Worksheet 3, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Identify syntax errors and describe program output (pairs). Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Data Scientist, Web Developer (back-end), Database Administrator – lists are a fundamental data structure used in managing collections of information.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 3 Lists</li>
+                <li>Lesson 3 Worksheet 3</li>
+                <li>Lesson 3 Worksheet 3 Answers</li>
+                <li>Lesson 3 Homework 3</li>
+                <li>Lesson 3 Homework 3 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-next-steps-lesson-4">Lesson 4: Procedures</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand what a procedure is.</li>
+                <li>Be able to define and call a procedure.</li>
+                <li>Understand why procedures are useful.</li>
+                <li>Be able to use parameters in a procedure.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Write steps to tie a shoelace (two shoelaces, "do the same thing").<br><strong>Main Activity:</strong> Introduce procedures (<code>def</code> keyword). Differentiate procedures vs functions (return values). Re-use code (BBC logo example, identifying repeated parts). Explain advantages of procedures (shorter programs, debugging). Complete Worksheet 4, Task 1. Explain parameters (passing data, avoiding global variables). Demonstrate code running. Complete Worksheet 4, Task 2.</li>
+                <li><strong>Plenary:</strong> Analyse code combining procedure with parameter and <code>for</code> loop. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Engineer, Systems Architect, Game Developer – modular programming with procedures improves code organisation and reusability.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 4 Procedures</li>
+                <li>Lesson 4 Worksheet 4</li>
+                <li>Lesson 4 Worksheet 4 Answers</li>
+                <li>Lesson 4 Homework 4</li>
+                <li>Lesson 4 Homework 4 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-next-steps-lesson-5">Lesson 5: Functions</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand what a function is.</li>
+                <li>Be able to define and call a function.</li>
+                <li>Assign the return value of a function to a variable.</li>
+                <li>Understand how functions use parameters.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> "Magic boxes" (input list, output total) to demonstrate reusable functions.<br><strong>Main Activity:</strong> Differentiate procedures and functions (return values, parameters). Show <code>calcDouble(num)</code> function, calling, parameter passing. Adapt to <code>calcHalf</code>. Complete Worksheet 5, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Analyse code with function and <code>for</code> loop (output, loop range). Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Developer, Data Scientist, Financial Modeler – functions are essential for building complex, reusable, and testable code.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 5 Functions</li>
+                <li>Lesson 5 Worksheet 5</li>
+                <li>Lesson 5 Worksheet 5 Answers</li>
+                <li>Lesson 5 Homework 5</li>
+                <li>Lesson 5 Homework 5 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-next-steps-lesson-6">Lesson 6: Searching</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand two search algorithms: Linear search, Binary search.</li>
+                <li>Compare the efficiency of each algorithm.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Play "guess the number" game (introduce binary search concept).<br><strong>Main Activity:</strong> Introduce linear search (algorithm, Python code - depth based on class). Introduce binary search (algorithm, Python code). Compare efficiency of linear vs. binary search (e.g., for number 19). Discuss uses of binary searches. Hand out Worksheet 6, Task 1.</li>
+                <li><strong>Plenary:</strong> Recap steps and efficiency of each algorithm. Assign Homework 6.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 6 tasks.</li>
+                <li>Homework 6.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Database Administrator, Information Retrieval Specialist, Software Engineer – understanding search algorithms is fundamental for efficient data access.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 6 Searching</li>
+                <li>Lesson 6 Worksheet 6</li>
+                <li>Lesson 6 Worksheet 6 Answers</li>
+                <li>Lesson 6 Homework 6</li>
+                <li>Lesson 6 Homework 6 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-next-steps-assessment">Lesson 7: Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Complete the assessment questions.</li>
+                <li>Complete the portfolio.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Hand out Python Assessment Portfolio. Pupils complete all parts. Assessment can be completed on screen.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Python Assessment Portfolio.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces foundational programming skills applicable to almost all tech careers, from software development to data science.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Python Assessment Portfolio</li>
+                <li>Python Assessment Portfolio Answers</li>
+            </ul>
+        </div>
+
+        <div id="html-web-dev-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: HTML & Web Development</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit introduces pupils to HTML and CSS, covering web page creation, responsive design, good design principles, and web forms.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="html-web-dev-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="html-web-dev-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="html-web-dev-lesson-1">Lesson 1: HTML</option>
+                    <option value="html-web-dev-lesson-2">Lesson 2: CSS</option>
+                    <option value="html-web-dev-lesson-3">Lesson 3: Design</option>
+                    <option value="html-web-dev-lesson-4">Lesson 4: Development</option>
+                    <option value="html-web-dev-lesson-5">Lesson 5: Web Forms</option>
+                    <option value="html-web-dev-lesson-6">Lesson 6: Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="html-web-dev-lesson-1">Lesson 1: HTML</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the meaning of the term the World Wide Web.</li>
+                <li>Be able to make a simple web page including: Creating HTML in a text editor, Viewing the page in a web browser.</li>
+                <li>Be able to use the following HTML tags: Headings, paragraphs, images, line breaks, hyperlinks.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss what the World Wide Web is and where it is located.</li>
+                <li><strong>Main Activity:</strong> Explain HTML deals with content, not appearance. Explain open/close tags, elements, self-closing tags (<code>&lt;br/&gt;</code>). Explain parts of a web page (head, body, title, meta data). Demonstrate saving/viewing HTML (file extension, refresh). Hand out Worksheet 1, Task 1. Introduce webpage creation activity (country example). Go through page development stages. Complete Worksheet 1, Task 2.</li>
+                <li><strong>Plenary:</strong> Discuss various HTML tags and their functions. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Front-End Web Developer, UI Designer, Digital Content Creator – foundational skills for building web interfaces.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 1 HTML</li>
+                <li>Lesson 1 Worksheet 1</li>
+                <li>Lesson 1 Worksheet 1 Answers</li>
+                <li>Lesson 1 Homework 1</li>
+                <li>Lesson 1 Homework 1 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="html-web-dev-lesson-2">Lesson 2: CSS</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Learn how CSS is used to change the styles in web pages and websites.</li>
+                <li>Write CSS code to set styles including: <code>background-color</code>, <code>color</code>, <code>font-size</code>, <code>margin</code>, <code>padding</code>, <code>text-align</code>, <code>font-family</code>, <code>max-width</code>.</li>
+                <li>Understand the need for responsive web design and make use of percentages for width and height dimensions.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Recap HTML tags.</li>
+                <li><strong>Main Activity:</strong> Explain CSS (style vs. content, cascading). Show applying style to <code>H1</code> tag (inline vs. head). Explain CSS syntax (selector, declaration, property, value, curly braces, semicolon). Discuss American spellings (<code>color</code>). Explain link states (<code>a:link</code>, <code>a:visited</code>, etc.). Introduce <code>&lt;div&gt;</code> tag. Explain margins, borders, padding. Introduce responsive design (adapting to screen size, percentages). Hand out Worksheet 2, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Match CSS with screenshots, explain property control. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> UI/UX Designer, Front-End Developer, Web Designer – understanding CSS is crucial for visual design and responsive layouts.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 2 CSS</li>
+                <li>Lesson 2 Worksheet 2</li>
+                <li>Lesson 2 Worksheet 2 Answers</li>
+                <li>Lesson 2 Homework 2</li>
+                <li>Lesson 2 Homework 2 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="html-web-dev-lesson-3">Lesson 3: Design</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the features of good web design including: The use of colour, Consistent layout with use of a template, Navigation bars.</li>
+                <li>Create CSS buttons.</li>
+                <li>Complete wireframes for a website and gather content.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> What makes well-designed websites (looks, usability).</li>
+                <li><strong>Main Activity:</strong> Discuss audience and purpose. Explain colour palette techniques (complementary, analogous, monochromatic, generators). Discuss consistent layout and templates. Introduce wireframes (design on paper, standard symbols). Discuss gathering material (images, text, website folder). Hand out Worksheet 3, Task 1. Explain CSS buttons (text selectable, professional look). Complete Worksheet 3, Task 2 and Task 3.</li>
+                <li><strong>Plenary:</strong> Revisit starter question (what makes good web design). Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Web Designer, UI/UX Designer, Graphic Designer, Marketing Specialist – design principles are essential for creating appealing and effective digital products.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 3 Design</li>
+                <li>Lesson 3 Worksheet 3</li>
+                <li>Lesson 3 Worksheet 3 Answers</li>
+                <li>Lesson 3 Homework 3</li>
+                <li>Lesson 3 Homework 3 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="html-web-dev-lesson-4">Lesson 4: Development</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Learn how to create a consistent look and feel throughout a website.</li>
+                <li>Add content to web pages including: Headings, Images, Text.</li>
+                <li>Create internal and external links and make sure they all work.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> How to make many web pages from a template (Dreamweaver, WordPress, copying). Emphasise testing template.</li>
+                <li><strong>Main Activity:</strong> Create blank web pages from template (renaming). Explain navigation bar links (<code>&lt;a&gt;</code> tag, <code>button</code> tag). Show adding external hyperlinks and images (<code>float</code> style, text wrap). Hand out Worksheet 4, Task 1.</li>
+                <li><strong>Plenary:</strong> Identify mistakes in given HTML (hyperlinks, images). Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Web Developer, Front-End Developer, Content Manager – practical skills in building and linking web pages are core to these roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 4 Development</li>
+                <li>Lesson 4 Worksheet 4</li>
+                <li>Lesson 4 Worksheet 4 Answers</li>
+                <li>Lesson 4 Homework 4</li>
+                <li>Lesson 4 Homework 4 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="html-web-dev-lesson-5">Lesson 5: Web Forms</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Be able to create a web form including: Input text boxes, Submit buttons.</li>
+                <li>Understand what happens to the input data once it has been submitted.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> What happens when submit button is pressed (HTML, CSS, server processing).</li>
+                <li><strong>Main Activity:</strong> Show example HTML form (input text boxes, submit button, <code>type</code> attribute). Discuss <code>action</code> attribute (simulated with JavaScript). Show how submitted data appears. Explain JavaScript for simulating data sending. Hand out Worksheet 5, Task 1.</li>
+                <li><strong>Plenary:</strong> Discuss HTML tags for form, text box, submit button. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Web Developer, Data Entry Specialist, E-commerce Specialist – understanding how web forms capture and handle data is important for online interactions.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Lesson 5 Web forms</li>
+                <li>Lesson 5 Worksheet 5</li>
+                <li>Lesson 5 Worksheet 5 Answers</li>
+                <li>Lesson 5 Homework 5</li>
+                <li>Lesson 5 Homework 5 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="html-web-dev-assessment">Lesson 6: Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Complete the assessment questions.</li>
+                <li>Complete the portfolio.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Pupils complete the Web Assessment Portfolio. Test can be printed or answered in document (highlighting/bolding). Sections can be removed/skipped.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Web Assessment Portfolio.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces practical web development skills, valuable for aspiring web professionals.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Web Assessment Portfolio</li>
+                <li>Web Assessment Portfolio Answers</li>
+            </ul>
+        </div>
+
+        <div id="computer-crime-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Computer Crime and Cyber Security</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit covers legal safeguards regarding computer use, including the Computer Misuse Act, Data Protection Act, Copyright Law, and their implications. It also discusses phishing, malware, identity theft, and health and safety in computer use.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="computer-crime-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="computer-crime-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="computer-crime-lesson-1">Lesson 1: Computer Misuse</option>
+                    <option value="computer-crime-lesson-2">Lesson 2: Protecting Personal Data</option>
+                    <option value="computer-crime-lesson-3">Lesson 3: Passwords and Email Scams</option>
+                    <option value="computer-crime-lesson-4">Lesson 4: Copyright</option>
+                    <option value="computer-crime-lesson-5">Lesson 5: Computer Crime</option>
+                    <option value="computer-crime-lesson-6">Lesson 6: Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="computer-crime-lesson-1">Lesson 1: Computer Misuse</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the Computer Misuse Act and what computer activities are illegal.</li>
+                <li>Understand what is meant by hacking.</li>
+                <li>Know different types of malware.</li>
+                <li>Learn ways to protect yourself from malware.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Define hacking (historical vs. common usage).</li>
+                <li><strong>Main Activity:</strong> Discuss motivations for hacking (money, intellectual challenge). Explain key parts of the Computer Misuse Act (1990). Hand out Worksheet 1, Task 1. Discuss methods of computer misuse (exploiting weaknesses, other methods). Explain malware (viruses, worms, Trojan horses), signs, and prevention (anti-virus, "zero day"). Discuss ransomware (encryption, fees, backups, not paying). Complete Worksheet 1, Task 2.</li>
+                <li><strong>Plenary:</strong> Discuss the four broad topics covered. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>PSHE:</strong> Digital safety, consequences of illegal actions.</li>
+                <li><strong>Law:</strong> Computer Misuse Act.</li>
+                <li><strong>Careers:</strong> Cybersecurity Analyst, Ethical Hacker, Digital Forensics Investigator, Law Enforcement (Cybercrime Unit) – understanding cybercrime and prevention is central to these roles.</li>
+            </ul>
+            <hr>
+
+            <h3 id="computer-crime-lesson-2">Lesson 2: Protecting Personal Data</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand what personal data is.</li>
+                <li>Be aware of who holds personal data and why they need to hold it.</li>
+                <li>Know what identity theft is.</li>
+                <li>Know how to minimise the risk of identity theft.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider what data is personal (context-dependent, e.g., postcode).</li>
+                <li><strong>Main Activity:</strong> Discuss organisations holding personal data. Explain Data Protection Act (2018) and GDPR, rights/responsibilities. Discuss British Airways case study (fines for data breaches). Hand out Worksheet 2, Task 1. Discuss personal information on smartphones (GPS, call data, triangulation). Explain ID theft (concept, uses, protection). Discuss shoulder surfing. Complete Worksheet 2, Task 2 and Task 3.</li>
+                <li><strong>Plenary:</strong> Recap five concepts. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>PSHE:</strong> Privacy, data security, consumer rights.</li>
+                <li><strong>Law:</strong> Data Protection Act (2018), GDPR.</li>
+                <li><strong>Careers:</strong> Data Protection Officer (DPO), Compliance Officer, Privacy Consultant, Information Security Analyst – roles focused on legal and ethical data handling.</li>
+            </ul>
+            <hr>
+
+            <h3 id="computer-crime-lesson-3">Lesson 3: Passwords and Email Scams</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the effects of computer crime.</li>
+                <li>Be able to create strong passwords.</li>
+                <li>Be able to create passwords that are easy to remember but hard to crack.</li>
+                <li>Understand how a dictionary attack works.</li>
+                <li>Learn about different types of email scam including: Phishing, Trojan horse and malware, Advanced fee fraud, Virus generated spam.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss false statements about computer crime (spam, ransomware statistics).</li>
+                <li><strong>Main Activity:</strong> Explain password protection (brute-force attacks, short passwords). Discuss tips for strong passwords. Explain dictionary attacks (customised dictionaries, common passwords). Hand out Worksheet 3, Task 1. Discuss email scams (phishing, advance fee fraud, malware generated email). Explain phishing (emails, social media, messaging apps, conversion rates). Discuss email attachments (risks, types to avoid, unexpected emails). Explain advance fee fraud (variations, Nigerian prince scam, purposeful amateurishness). Discuss malware generated email (from friends/colleagues). Complete Worksheet 3, Task 2 and Task 3.</li>
+                <li><strong>Plenary:</strong> Recap topics. Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>PSHE:</strong> Critical thinking, consumer awareness, personal safety.</li>
+                <li><strong>Careers:</strong> Cybersecurity Analyst, IT Security Specialist, Fraud Prevention Officer – skills in identifying and preventing common cyber threats are vital.</li>
+            </ul>
+            <hr>
+
+            <h3 id="computer-crime-lesson-4">Lesson 4: Copyright</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the term copyright including: What works are covered, How long it lasts.</li>
+                <li>Be able to identify breaches of copyright and how they are detected.</li>
+                <li>Understand the damages that breaches cause.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss copyright statements on products.</li>
+                <li><strong>Main Activity:</strong> Define "creative works" (examples, what's not covered like ideas/formulae). Explain length of copyright (70/50 years, variations). Explain "copyright infringement" vs. "copyright theft". Discuss who is harmed by breaches. Read artist views on infringement, discuss. Explain how infringers are caught (IP address tracking). Discuss plagiarism (Internet, AI tools, quoting, acknowledging). Hand out Worksheet 4, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Quiz on copyright concepts. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Law:</strong> Copyright law, intellectual property.</li>
+                <li><strong>Art/Media:</strong> Creative works, plagiarism.</li>
+                <li><strong>Careers:</strong> Intellectual Property Lawyer, Content Creator, Publisher, Software Engineer (licensing) – understanding intellectual property rights is crucial in creative and tech industries.</li>
+            </ul>
+            <hr>
+
+            <h3 id="computer-crime-lesson-5">Lesson 5: Computer Crime</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Learn about some of the common health and safety problems associated with computer use.</li>
+                <li>Learn ways of avoiding these problems.</li>
+                <li>Learn about Health and Safety regulations.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss health and safety in computer/office environments.</li>
+                <li><strong>Main Activity:</strong> Discuss headaches and eyestrain (causes, prevention). Discuss posture and repetitive strain injury (RSI, typing, hand position). Explain Health and Safety regulations. Discuss fire extinguishers (CO2 for electrical fires, water risk, powder mess, evacuation). Discuss trip hazards. Discuss blue light (LED screens, melatonin, sleep, phone use before bed, screen settings). Hand out Worksheet 5, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Discuss scenario (write/type points), review answers. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>PSHE:</strong> Health and well-being, ergonomics.</li>
+                <li><strong>Science:</strong> Effects of light.</li>
+                <li><strong>Careers:</strong> Ergonomist, Health and Safety Officer, IT Administrator – roles focused on ensuring safe and healthy work environments involving technology.</li>
+            </ul>
+            <hr>
+
+            <h3 id="computer-crime-lesson-6">Lesson 6: Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Complete the assessment questions.</li>
+                <li>Complete the portfolio.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Students complete the Computer Crime Final Assessment. Answers available in Computer Crime Answers sheet. Tests can be printed or answered in document (highlighting/bolding).</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Computer Crime Final Assessment.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces knowledge of cybersecurity and legal aspects of computing, essential for future roles in IT security and digital law.</li>
+            </ul>
+        </div>
+
+        <div id="python-turtle-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Python Turtle</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit introduces Year 7 pupils to fundamental programming concepts using Python Turtle, focusing on sequencing instructions, defining and calling subroutines, and implementing iteration.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="python-turtle-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="python-turtle-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="python-turtle-lesson-1">Lesson 1: Sequencing Instructions</option>
+                    <option value="python-turtle-lesson-2">Lesson 2: Subroutines (Functions without parameters)</option>
+                    <option value="python-turtle-lesson-3">Lesson 3: Iteration (For Loops)</option>
+                    <option value="python-turtle-lesson-4">Lesson 4: Iteration (While Loops)</option>
+                    <option value="python-turtle-lesson-5">Lesson 5: Combining Concepts & Creative Projects</option>
+                    <option value="python-turtle-lesson-6">Lesson 6: Assessment & Portfolio</option>
+                </select>
+            </div>
+
+            <h3 id="python-turtle-lesson-1">Lesson 1: Sequencing Instructions</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand what an instruction is in programming.</li>
+                <li>Be able to write a sequence of Python Turtle commands to draw basic shapes.</li>
+                <li>Understand that instructions are executed in order.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Introduce Python Turtle. Show a simple drawing and ask how the computer "knew" what to draw.</li>
+                <li><strong>Main Activity:</strong> Demonstrate basic Turtle commands: `import turtle`, `forward()`, `right()`, `left()`, `done()`. Guide pupils through writing their first sequence to draw a square or triangle. Emphasise the order of commands and predict outcomes. Introduce `penup()` and `pendown()` for moving without drawing.</li>
+                <li><strong>Plenary:</strong> Challenge pupils to draw a simple letter (e.g., 'L' or 'T') using only forward and turn commands. Discuss the importance of command order.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Observation of pupils' ability to write correct sequences.</li>
+                <li>Review of completed drawing challenges.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Art & Design:</strong> Creating geometric patterns and shapes.</li>
+                <li><strong>Maths:</strong> Understanding angles and distances.</li>
+                <li><strong>Careers:</strong> Game Developer, Animator, Robotics Programmer – all involve precise sequencing of commands.</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-turtle-lesson-2">Lesson 2: Subroutines (Functions without parameters)</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the concept of a subroutine (procedure/function).</li>
+                <li>Be able to define a simple subroutine in Python Turtle.</li>
+                <li>Be able to call a subroutine multiple times to repeat drawing actions.</li>
+                <li>Understand the benefit of using subroutines for code reusability.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Show a drawing made of repeated shapes (e.g., a row of squares). Ask how they might draw this efficiently without copying and pasting many lines.</li>
+                <li><strong>Main Activity:</strong> Introduce the `def` keyword to define a subroutine (e.g., `def draw_square():`). Explain the importance of indentation within the subroutine. Demonstrate calling the subroutine. Guide pupils to modify their previous square drawing into a subroutine and call it multiple times. Discuss the advantages of subroutines (less code, easier to read, easier to debug).</li>
+                <li><strong>Plenary:</strong> Challenge pupils to create a subroutine to draw a house outline (square + triangle) and call it twice to draw two houses.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Observation of subroutine definition and calling.</li>
+                <li>Review of code for reusability.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Maths:</strong> Pattern recognition, modularity.</li>
+                <li><strong>Careers:</strong> Software Engineer, Automation Engineer – breaking down complex tasks into smaller, reusable modules is a core programming practice.</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-turtle-lesson-3">Lesson 3: Iteration (For Loops)</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the concept of iteration (repetition).</li>
+                <li>Be able to use a `for` loop to repeat a block of code a specific number of times.</li>
+                <li>Combine `for` loops with Turtle commands to create repetitive patterns.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Show a spiral pattern drawn with Turtle. Ask how many times a basic forward/turn sequence might have been repeated.</li>
+                <li><strong>Main Activity:</strong> Introduce `for` loops with `range()`. Explain how `for i in range(x):` repeats the indented code `x` times. Demonstrate drawing a square using a `for` loop. Guide pupils to refactor their previous subroutine-based drawings to incorporate `for` loops for efficiency. Explore drawing regular polygons (e.g., hexagon, octagon) using `for` loops and angle calculations.</li>
+                <li><strong>Plenary:</strong> Challenge pupils to draw a star or a more complex geometric pattern using a single `for` loop.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Observation of `for` loop implementation.</li>
+                <li>Review of code efficiency and pattern complexity.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Maths:</strong> Geometry, patterns, multiplication.</li>
+                <li><strong>Art & Design:</strong> Algorithmic art, generative design.</li>
+                <li><strong>Careers:</strong> Data Scientist, Financial Modeler, Game Developer – repetitive tasks and simulations often rely on iteration.</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-turtle-lesson-4">Lesson 4: Iteration (While Loops)</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the concept of `while` loops for indefinite iteration.</li>
+                <li>Be able to use a `while` loop with a condition to control repetition.</li>
+                <li>Combine `while` loops with user input to create interactive Turtle drawings.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Ask how they would make the turtle draw until the user types 'stop'. Introduce the idea of a loop that runs "while" a condition is true.</li>
+                <li><strong>Main Activity:</strong> Introduce `while` loops. Explain the condition and how it controls loop execution. Demonstrate a simple `while` loop that continues until a specific input is given. Guide pupils to create an interactive drawing program where the turtle moves based on user input (e.g., 'f' for forward, 'l' for left, 'q' to quit).</li>
+                <li><strong>Plenary:</strong> Challenge pupils to create a program where the turtle draws a random walk until it hits the edge of the screen or a certain number of steps.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Observation of `while` loop implementation and condition handling.</li>
+                <li>Assessment of interactive program functionality.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Maths:</strong> Conditional logic, random numbers.</li>
+                <li><strong>Careers:</strong> Robotics Engineer, Interactive Designer, Software Quality Assurance – understanding conditional loops is vital for creating responsive and robust systems.</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-turtle-lesson-5">Lesson 5: Combining Concepts & Creative Projects</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Combine sequencing, subroutines, and iteration to create more complex Python Turtle programs.</li>
+                <li>Apply learned concepts to design and implement a creative drawing project.</li>
+                <li>Debug and refine their Python Turtle code.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Showcase examples of complex Python Turtle art (e.g., fractals, intricate patterns). Discuss how these might be built using the concepts learned.</li>
+                <li><strong>Main Activity:</strong> Provide a creative project brief (e.g., draw a town scene, a complex geometric pattern, an animated character). Encourage pupils to plan their drawing using pseudocode or flowcharts, breaking it down into subroutines and identifying iterative parts. Provide time for independent coding and debugging. Offer support and guidance on common errors.</li>
+                <li><strong>Plenary:</strong> Pupils present their creative projects to the class, explaining their code structure and any challenges faced.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Observation of project planning and implementation.</li>
+                <li>Evaluation of final project code and output.</li>
+                <li>Peer and self-assessment during presentations.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Art & Design:</strong> Digital art, creative expression.</li>
+                <li><strong>Project Management:</strong> Planning, execution, debugging.</li>
+                <li><strong>Careers:</strong> Software Developer, Game Designer, Animator, Computational Artist – applying programming skills to creative problem-solving.</li>
+            </ul>
+            <hr>
+
+            <h3 id="python-turtle-lesson-6">Lesson 6: Assessment & Portfolio</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Demonstrate understanding of sequencing, subroutines, and iteration in Python Turtle.</li>
+                <li>Apply learned programming concepts to solve a given problem.</li>
+                <li>Reflect on their learning and programming progress.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Quick revision quiz on Python Turtle commands and concepts.</li>
+                <li><strong>Main Activity:</strong> Pupils complete a practical assessment task using Python Turtle, requiring them to apply sequencing, subroutines, and iteration. Provide clear instructions and success criteria. Pupils then compile their work into a digital portfolio, including screenshots and code, and a brief reflection on their learning journey.</li>
+                <li><strong>Plenary:</strong> Discuss key takeaways from the unit and potential next steps in programming.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Practical assessment task performance.</li>
+                <li>Evaluation of digital portfolio content and reflection.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li><strong>Reflection:</strong> Self-assessment and metacognition.</li>
+                <li><strong>Careers:</strong> Reinforces foundational programming skills and computational thinking, valuable for any future tech-related career.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(function(tabContent) {
+                tabContent.classList.remove('active');
+            });
+
+            // Set the selected value in the correct dropdown
+            document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+                if (dropdown.querySelector(`option[value="${tabId}"]`)) {
+                    dropdown.value = tabId;
+                } else {
+                    dropdown.value = ""; // Reset other dropdowns if selected tab is not in them
+                }
+            });
+
+            // Show the selected tab content
+            const selectedTabContent = document.getElementById(tabId);
+            if (selectedTabContent) {
+                selectedTabContent.classList.add('active');
+
+                // Set the sub-navigation dropdown to the first lesson and scroll to it
+                const subNavDropdown = selectedTabContent.querySelector('.sub-nav-container .nav-dropdown');
+                if (subNavDropdown && subNavDropdown.options.length > 0) {
+                    subNavDropdown.value = subNavDropdown.options[0].value;
+                    jumpToLesson(subNavDropdown.options[0].value);
+                } else {
+                    // If no sub-nav, just scroll to the top of the tab content
+                    selectedTabContent.scrollIntoView({ behavior: 'smooth' });
+                }
+
+            } else {
+                console.error(`Error: Element with ID '${tabId}' not found.`);
+            }
+        }
+
+        function jumpToLesson(lessonId) {
+            const element = document.getElementById(lessonId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Show the default tab on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial dropdown selections and show the first tab
+            const year7Dropdown = document.getElementById('year7-units');
+            if (year7Dropdown) {
+                year7Dropdown.value = 'ucser-sol'; // Set default selected option
+                showTab(year7Dropdown.value); // Show the content for the default selected option
+            }
+        });
+    </script>
+</body>
+</html>
