@@ -9,9 +9,10 @@
         /* Custom styles for better readability and aesthetics */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ff0000; /* Light grey background */
+            background-color: #f3f4f6; /* Light grey background */
             color: #1f2937; /* Dark grey text */
             line-height: 1.6;
+            padding-top: 100px; /* Add padding to body to prevent content from being hidden behind fixed nav */
         }
         .container {
             max-width: 1280px; /* Max width for content */
@@ -77,6 +78,16 @@
         }
         .tab-content.active {
             display: block;
+        }
+        /* Sticky navigation bar styles */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure it stays on top of other content */
+            background-color: #f8fafc; /* Match its background */
+            padding: 0.5rem; /* Match its padding */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+            border-bottom: 1px solid #e5e7eb; /* Add a bottom border */
         }
         .nav-section-title {
             font-size: 1rem; /* Slightly smaller font size */
@@ -156,7 +167,7 @@
     <div class="container">
         <h1 class="text-3xl font-extrabold mb-8">QMHS Computer Science Key Stage 3</h1>
 
-        <nav class="mb-8 p-4 bg-gray-100 rounded-lg shadow-sm">
+        <nav class="main-nav mb-8 p-4 bg-gray-100 rounded-lg shadow-sm">
             <div class="nav-main-container">
                 <div class="nav-group">
                     <div class="nav-section-title">Year 7:</div>
@@ -270,7 +281,7 @@
                 <li><a href="https://www.nspcc.org.uk/keeping-children-safe/online-safety/" target="_blank">NSPCC: Online Safety</a> (Resources on various online safety topics for children)</li>
                 <li><a href="https://www.thinkuknow.co.uk/" target="_blank">Thinkuknow</a> (Educational resources from the National Crime Agency's CEOP Command)</li>
                 <li><strong>For Students:</strong></li>
-                <li><a href="https://www.bbc.co.uk/newsround/38906931" target="_blank">BBC Newsround: Online Safety</a> (Articles and videos on staying safe online, including fake news)</li>
+                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/3" target="_blank">BBC Newsround: Online Safety</a> (Articles and videos on staying safe online, including fake news)</li>
                 <li><a href="https://www.childline.org.uk/info-advice/bullying-abuse-safety/types-bullying/cyberbullying/" target="_blank">Childline: Cyberbullying</a> (Advice and support for young people experiencing cyberbullying)</li>
             </ul>
             <hr>
