@@ -2280,6 +2280,647 @@
             </ul>
         </div>
 
+        <div id="gcse-systems-architecture-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Systems Architecture</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit covers Section 1.2.1 and 1.2.2 of the OCR J277 specification for GCSE Computer Science, focusing on the architecture of the CPU, CPU performance, and primary and secondary storage.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="gcse-systems-architecture-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="gcse-systems-architecture-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="gcse-systems-architecture-lesson-1">Topic 1: Architecture of the CPU</option>
+                    <option value="gcse-systems-architecture-lesson-2">Topic 2: CPU Performance</option>
+                    <option value="gcse-systems-architecture-lesson-3">Topic 3: Memory</option>
+                    <option value="gcse-systems-architecture-lesson-4">Topic 4: Secondary Storage</option>
+                    <option value="gcse-systems-architecture-assessment">Final Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="gcse-systems-architecture-lesson-1">Topic 1: Architecture of the CPU</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the purpose of the CPU and the fetch-execute cycle.</li>
+                <li>Understand the following registers in the Von Neumann architecture: MAR (Memory Address Register), MDR (Memory Data Register), Program Counter, Accumulator.</li>
+                <li>Understand common CPU components including: ALU (Arithmetic Logic Unit), CU (Control Unit), Cache, Registers.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> PowerPoint Guide: Topic 1 Architecture of the CPU. Ask students to identify input/output devices for a laptop/smartphone and the CPU's role. Use an old computer to show physical components like RAM and CPU on the motherboard.</li>
+                <li><strong>Main Activity:</strong> Discuss the simple block diagram of computer components. Relate it to various computer systems (smartphone, laptop, tablet, games console). Show CPU examples. Introduce John von Neumann's stored program concept (programs and data in common memory). Briefly mention Harvard architecture (optional). Explain CPU components: CU and ALU functions, registers (PC, MAR, MDR, Accumulator). Hand out Worksheet 1, Task 1. Introduce Fetch-Decode-Execute cycle and demonstrate with Little Man Computer simulator (<a href="https://www.101computing.net/LMC/" target="_blank">https://www.101computing.net/LMC/</a>). Explain PC, Accumulator, MAR, and MDR in detail.</li>
+                <li><strong>Plenary:</strong> Ask students to answer review questions in pairs, then discuss as a class. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Computer Architect, Microchip Designer, Embedded Systems Engineer – understanding CPU architecture is fundamental to designing and developing computer hardware.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 1 Architecture of the CPU</li>
+                <li>Topic 1 Worksheet 1</li>
+                <li>Topic 1 Worksheet 1 Answers</li>
+                <li>Topic 1 Homework 1</li>
+                <li>Topic 1 Homework 1 Answers</li>
+                <li><a href="https://www.101computing.net/LMC/" target="_blank">Little Man Computer Simulator</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-systems-architecture-lesson-2">Topic 2: CPU Performance</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the function of cache in the CPU.</li>
+                <li>Describe how common characteristics of CPUs affect their performance including: Clock speed, Cache size, Number of cores.</li>
+                <li>Explain the purpose and give examples of embedded systems.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> PowerPoint Guide: Topic 2 CPU performance. Review CPU components and registers.</li>
+                <li><strong>Main Activity:</strong> Discuss factors affecting CPU performance: Clock speed (Hz, MHz, GHz), Number of cores, Cache. Explain how increasing these generally improves performance, but also limitations (e.g., software needing to utilise multiple cores). Discuss cache (small, fast memory between CPU registers and RAM, levels of cache). Hand out Worksheet 2, Task 1. Introduce embedded systems (single computer chips controlling devices like washing machines, card readers, microwaves). Discuss their inputs, processes, and outputs.</li>
+                <li><strong>Plenary:</strong> Review key factors affecting CPU performance and embedded systems. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Computer Hardware Engineer, Embedded Systems Developer, Performance Engineer – roles focused on optimising computer system speed and efficiency.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 2 CPU performance</li>
+                <li>Topic 2 Worksheet 2</li>
+                <li>Topic 2 Homework 2</li>
+                <li>Topic 2 Homework 2 Answers</li>
+                <li><a href="https://www.metronomeonline.com/" target="_blank">Online Metronome</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-systems-architecture-lesson-3">Topic 3: Memory</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Explain the need for primary storage.</li>
+                <li>Describe the difference between RAM and ROM.</li>
+                <li>Describe the purpose of RAM and ROM in a computer system.</li>
+                <li>Explain the need for virtual memory.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> PowerPoint Guide: Topic 3 Memory. Discuss different types of memory in computer systems (RAM, ROM, CPU memory).</li>
+                <li><strong>Main Activity:</strong> Introduce primary storage: RAM and ROM. Explain features of each (volatility, read/write capability). Discuss how OS, software, and data are transferred to RAM for CPU access. Explain virtual memory's role when RAM is full (swapping data to/from hard disk). Discuss advantages/disadvantages of virtual memory. Explain ROM's role in computer startup (bootstrap loader, POST). Show memory speed hierarchy (registers, cache, RAM, virtual memory). Hand out Worksheet 3, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Review key concepts of memory. Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Systems Administrator, Memory Architect, Software Developer (performance optimisation) – understanding memory management is crucial for efficient system operation.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 3 Memory</li>
+                <li>Topic 3 Worksheet 3</li>
+                <li>Topic 3 Homework 3</li>
+                <li>Topic 3 Homework 3 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-systems-architecture-lesson-4">Topic 4: Secondary Storage</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Discuss the need for secondary storage including optical, magnetic and solid-state storage.</li>
+                <li>Evaluate suitable storage devices and media for a given application using the following characteristics: Capacity, Speed, Portability, Durability, Reliability, Cost.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> PowerPoint Guide: Topic 4 Secondary storage. Discuss the need for permanent data storage.</li>
+                <li><strong>Main Activity:</strong> Define secondary storage and its uses. Introduce magnetic (hard disks, tape drives), optical (Blu-ray, DVD, CD), and solid-state (SSD, flash drives, SD cards) storage methods. Explain basic working principles (e.g., pits and lands on optical disks). Discuss advantages and disadvantages of each type based on capacity, speed, portability, durability, reliability, and cost. Hand out Worksheet 4, Task 1, Task 2, and Task 3.</li>
+                <li><strong>Plenary:</strong> Review and compare different storage devices and media. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Data Centre Technician, Cloud Storage Engineer, IT Procurement Specialist, Archivist – understanding storage solutions is vital for data management and infrastructure roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 4 Secondary storage</li>
+                <li>Topic 4 Worksheet 4</li>
+                <li>Topic 4 Homework 4</li>
+                <li>Topic 4 Homework 4 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-systems-architecture-assessment">Final Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Apply their knowledge in answers to a range of questions.</li>
+                <li>Be able to identify areas of strength and any gaps in their understanding of impacts of digital technology on wider society.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Students complete the Assessment Test. Answers available in Unit 1 Assessment Test Answers. Test can be printed or answered by hand.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Unit 1 Assessment Test.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces fundamental computer science knowledge essential for further study and careers in computing.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Unit 1 Assessment Test.docx</li>
+                <li>Unit 1 Assessment Test Answers.docx</li>
+            </ul>
+        </div>
+
+        <div id="gcse-data-representation-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Data Representation (GCSE)</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit covers Section 1.2.3 and 1.2.4 of the OCR J277 specification for GCSE Computer Science, focusing on units, data storage, and representation of characters, images, and sound.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="gcse-data-representation-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="gcse-data-representation-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="gcse-data-representation-lesson-1">Topic 1: Units and Binary Numbers</option>
+                    <option value="gcse-data-representation-lesson-2">Topic 2: Binary Arithmetic and Hexadecimal</option>
+                    <option value="gcse-data-representation-lesson-3">Topic 3: Characters</option>
+                    <option value="gcse-data-representation-lesson-4">Topic 4: Images</option>
+                    <option value="gcse-data-representation-lesson-5">Topic 5: Sound</option>
+                    <option value="gcse-data-representation-lesson-6">Topic 6: Compression</option>
+                    <option value="gcse-data-representation-assessment">Final Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="gcse-data-representation-lesson-1">Topic 1: Units and Binary Numbers</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Define the terms bit, nibble, byte, kilobyte, megabyte, gigabyte, terabyte and petabyte.</li>
+                <li>Understand that data needs to be converted into a binary format to be processed by a computer.</li>
+                <li>Convert positive denary whole numbers (0-255) into 8-bit binary numbers and vice versa.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider the on/off power button symbol. Explain computers use binary (1s and 0s).</li>
+                <li><strong>Main Activity:</strong> Understand binary and binary number system. Discuss basic circuit layout. Define bit, byte, nibble. Discuss larger units (kB, MB, GB, TB, PB, EB, ZB, YB). Explain 1000 vs 1024 (kibibyte). Create mnemonics for units. Demonstrate bit combinations. Explain denary (decimal) system and how binary works similarly. Define most significant bit (MSB) and least significant bit (LSB). Complete Worksheet 1, Task 1. Demonstrate denary to binary conversion (subtraction method). Discuss representing large integers (16 bits, 24 bits for graphics). Complete Worksheet 1, Task 2.</li>
+                <li><strong>Plenary:</strong> Review questions in pairs, then class discussion. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Data Scientist, Software Engineer, Game Developer, Digital Artist – understanding data representation is fundamental to these roles.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 1 Units and binary numbers</li>
+                <li>Topic 1 Worksheet 1</li>
+                <li>Topic 1 Worksheet 1 Answers</li>
+                <li>Topic 1 Homework 1</li>
+                <li>Topic 1 Homework 1 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-data-representation-lesson-2">Topic 2: Binary Arithmetic & Hexadecimal</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Convert positive denary whole numbers (0-255) into 2-digit hexadecimal numbers and vice versa.</li>
+                <li>Convert between binary, denary and hexadecimal equivalents of the same number.</li>
+                <li>Add two 8-bit binary integers and explain overflow errors which may occur.</li>
+                <li>Understand the use of binary shifts.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Review binary to denary conversions. Introduce binary addition.</li>
+                <li><strong>Main Activity:</strong> Practice binary calculation (odd/even numbers). Introduce Hexadecimal (base-16, 0-9, A-F). Demonstrate hex to denary conversion (e.g., 2A). Demonstrate denary to hex conversion (e.g., 18). Hand out Worksheet 2, Task 1a. Discuss binary to hex conversion. Complete Worksheet 2, Task 1b. Explain why hex is used (e.g., colour values). Demonstrate simple denary addition. Explain binary addition rules (0+0=0, 0+1=1, 1+0=1, 1+1=0 carry 1, 1+1+1=1 carry 1). Discuss overflow errors (numbers > 255). Introduce binary shifts (left shift multiplies by 2, right shift divides by 2). Discuss discarded bits and loss of accuracy. Complete Worksheet 2, Task 2.</li>
+                <li><strong>Plenary:</strong> Practice number conversions. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Low-level Programmer, Embedded Systems Engineer, Cybersecurity Specialist – understanding hexadecimal and binary arithmetic is crucial for working directly with computer memory and security.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 2 Binary arithmetic and hexadecimal</li>
+                <li>Topic 2 Worksheet 2</li>
+                <li>Topic 2 Homework 2</li>
+                <li>Topic 2 Homework 2 Answers</li>
+                <li><a href="https://www.metronomeonline.com/" target="_blank">Online Metronome</a></li>
+                <li><a href="https://www.youtube.com/watch?v=VLzCg5YlQ7Y" target="_blank">Binary Video</a></li>
+                <li><a href="https://www.browserling.com/tools/text-to-ascii" target="_blank">Text to ASCII and Binary Converter</a></li>
+                <li><a href="http://csunplugged.org/" target="_blank">Computer Science Unplugged</a></li>
+                <li><a href="https://www.youtube.com/watch?v=5F_B905M1jY" target="_blank">Binary Addition Tutorial</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-data-representation-lesson-3">Topic 3: Characters</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand the use of binary codes to represent characters.</li>
+                <li>Understand the term ‘character set’.</li>
+                <li>Explain the relationship between the number of bits per character in a character set, and the number of characters that can be represented using: ASCII, Extended ASCII, Unicode.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider how to store letters using binary.</li>
+                <li><strong>Main Activity:</strong> Explain each character is a unique bit pattern. Discuss how many characters a character set needs to represent (bits required). Explain ASCII table (standard international keyboard, special characters, punctuation, space). Differentiate ASCII number '7' vs numeric binary '7'. Explain Extended ASCII (8 bits, 128 extra characters). Demonstrate ALT key combinations for characters. Hand out Worksheet 3, Task 1 and Task 2. Discuss programming with text and numbers (concatenation, type conversion). Explain Unicode (8, 16, or 32 bits, Chinese/Japanese characters). Complete Worksheet 3, Task 3.</li>
+                <li><strong>Plenary:</strong> Review key concepts. Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Software Localisation Specialist, Font Designer, Natural Language Processing Engineer – understanding character sets is vital for global software and text processing.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 3 Characters</li>
+                <li>Topic 3 Worksheet 3</li>
+                <li>Topic 3 Worksheet 3 Answers</li>
+                <li>Topic 3 Homework 3</li>
+                <li>Topic 3 Homework 3 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-data-representation-lesson-4">Topic 4: Images</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand how a bitmap graphic is made up of individual pixels.</li>
+                <li>Explain how each pixel is represented in binary.</li>
+                <li>Understand that the number of bits per pixel determines the number of available colours for an image.</li>
+                <li>Explain the need for image metadata.</li>
+                <li>Explain the relationship between file size and image resolution.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Discuss image file formats (JPG, GIF, PNG, SVG). Define 'pixel'.</li>
+                <li><strong>Main Activity:</strong> Explain bitmap (raster) images and image resolution (PPI, DPI). Discuss creating an image (monochrome, 1 bit per pixel, file size calculation). Explain colour or bit depth (more colours = more bits per pixel). Discuss relationship between colours/resolution and file size. Hand out Worksheet 4, Task 1. Discuss PBM monochrome images (editing pixel values in Notepad/Photoshop). Complete Worksheet 4, Task 2. Discuss colours and looking at colour values (RGB sub-pixels, Hexadecimal values). Explain why file sizes don't always add up (metadata, cluster sizes - beyond GCSE).</li>
+                <li><strong>Plenary:</strong> Fill in the gaps with keywords. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Graphic Designer, Web Designer, Photographer, Game Artist – skills in digital image manipulation and understanding image properties are essential.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 4 Images</li>
+                <li>Topic 4 Worksheet 4</li>
+                <li>Topic 4 Worksheet 4 Answers</li>
+                <li>Topic 4 Homework 4</li>
+                <li>Topic 4 Homework 4 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-data-representation-lesson-5">Topic 5: Sound</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand how sound is sampled and stored in digital form.</li>
+                <li>Be able to represent a short sound file in binary.</li>
+                <li>Explain how sampling intervals and resolution affect the size of a sound file using the terms: Sample rate, Bit depth.</li>
+                <li>Explain the trade-off between file size and the quality of playback.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider how computers store sound as 0s and 1s (sound card, ADC/DAC, computational thinking).</li>
+                <li><strong>Main Activity:</strong> Explain Analogue to Digital Converters (ADC) and Digital to Analogue Converters (DAC). Explain sound sampling (waveform, frequency points, sample points, sample resolution, bit depth). Demonstrate plotting sampling points. Compare graphs with different sampling resolutions/rates. Complete Worksheet 5, Task 1. Summarise digitised sound quality (frequency/bit-rate affecting file size). Complete Worksheet 5, Task 2. Discuss human hearing range. Introduce lossy compression (MP3, data loss not noticeable). Introduce lossless compression (no data loss, RLE). Discuss other file formats (WAV, CDs).</li>
+                <li><strong>Plenary:</strong> Test each other on key concepts. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Audio Engineer, Music Producer, Sound Designer for Games/Film, Podcast Editor – understanding digital audio principles is key.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 5 Sound</li>
+                <li>Topic 5 Worksheet 5</li>
+                <li>Topic 5 Worksheet 5 Answers</li>
+                <li>Topic 5 Homework 5</li>
+                <li>Topic 5 Homework 5 Answers</li>
+                <li><a href="https://www.youtube.com/watch?v=aTQS25w8kZo" target="_blank">Link Sound audibility test</a></li>
+                <li><a href="https://www.youtube.com/watch?v=aTQS25w8kZo" target="_blank">Link Mosquito</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-data-representation-lesson-6">Topic 6: Compression</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Explain the need for compression.</li>
+                <li>Describe the difference between lossy and lossless compression.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Consider huge data storage for video (HD video, compression benefits).</li>
+                <li><strong>Main Activity:</strong> Explain compression techniques (lossy vs lossless). Discuss lossy image compression (algorithms, data loss not important for images/sound, digital artefacts). Explain why lossy cannot be used for text/code. Explain lossless image compression (Run Length Encoding - RLE). Discuss text compression (lossless, finding patterns, dictionary compression). Hand out Worksheet 6, Task 1. Discuss advantages of compression in data transfer (time, data allowances). Play music track comparison. Complete Worksheet 6, Task 2. Discuss benefits of compression and buffering. Discuss file formats (lossy/lossless examples). Complete Worksheet 6, Task 3.</li>
+                <li><strong>Plenary:</strong> Explain key concepts to each other. Assign Homework 6.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 6 tasks.</li>
+                <li>Homework 6.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Network Engineer, Cloud Storage Specialist, Multimedia Developer – understanding data compression is vital for efficient data handling and transmission.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 6 Compression</li>
+                <li>Topic 6 Worksheet 6</li>
+                <li>Topic 6 Worksheet 6 Answers</li>
+                <li>Topic 6 Homework 6</li>
+                <li>Topic 6 Homework 6 Answers</li>
+                <li><a href="https://www.youtube.com/watch?v=aTQS25w8kZo" target="_blank">Music comparison link</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-data-representation-assessment">Final Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Apply their knowledge in answers to a range of questions.</li>
+                <li>Identify areas of strength and any gaps in their understanding of impacts of digital technology on wider society.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Students complete the Assessment Test. Answers available in Unit 2 Assessment Test Answers sheet. Test can be printed or answered electronically.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Unit 2 Assessment Test.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces fundamental computer science knowledge applicable to all tech-related careers.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Unit 2 Assessment Test.docx</li>
+                <li>Unit 2 Assessment Test Answers.docx</li>
+            </ul>
+        </div>
+
+        <div id="gcse-networks-protocols-sol" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Networks, Connections & Protocols (GCSE)</h2>
+            <p class="mb-6 text-center text-gray-700">
+                This unit covers Section 1.3.1 and 1.3.2 of the OCR J277 specification for GCSE Computer Science, focusing on networks and topologies, wired and wireless networks, protocols, and layers.
+            </p>
+
+            <div class="sub-nav-container">
+                <label for="gcse-networks-protocols-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+                <select id="gcse-networks-protocols-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                    <option value="gcse-networks-protocols-lesson-1">Topic 1: The Internet and WANs</option>
+                    <option value="gcse-networks-protocols-lesson-2">Topic 2: Local Area Networks</option>
+                    <option value="gcse-networks-protocols-lesson-3">Topic 3: Wireless Networking</option>
+                    <option value="gcse-networks-protocols-lesson-4">Topic 4: Client-server and Peer-to-peer Networks</option>
+                    <option value="gcse-networks-protocols-lesson-5">Topic 5: Standards, Protocols and Layers</option>
+                    <option value="gcse-networks-protocols-assessment">Final Assessment</option>
+                </select>
+            </div>
+
+            <h3 id="gcse-networks-protocols-lesson-1">Topic 1: The Internet and WANs</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Define a Wide Area Network.</li>
+                <li>Describe the nature of the Internet as a worldwide collection of computer networks.</li>
+                <li>Explain the need for IP addressing of resources on the Internet and how this can be facilitated by the role of DNS services.</li>
+                <li>Understand the need for Network Interface Cards and the uses of MAC addressing.</li>
+                <li>Explain packet switching.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> Ask students what the Internet is and the difference with the World Wide Web.</li>
+                <li><strong>Main Activity:</strong> Define WANs, discuss their use by organisations, and explain how Internet signals are carried (undersea cables). Discuss the growth of the Internet and the 'Internet of things'. Explain IP addressing (IPv4, IPv6) and the role of DNS servers. Introduce packet switching, contrasting it with circuit switching, and demonstrate with a practical activity. Explain reassembling data and the role of 'nodes'. Discuss Network Interface Cards (NICs) and MAC addresses, explaining why both IP and MAC addresses are needed. Hand out Worksheet 1, Task 1, Task 2, and Task 3.</li>
+                <li><strong>Plenary:</strong> Review key vocabulary. Assign Homework 1.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 1 tasks.</li>
+                <li>Homework 1.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Network Engineer, Cloud Architect, Cybersecurity Specialist, Telecommunications Engineer – fundamental understanding of global network infrastructure.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 1 The Internet and Wide Area Networks</li>
+                <li>Topic 1 Worksheet 1</li>
+                <li>Topic 1 Worksheet 1 Answers</li>
+                <li>Topic 1 Homework 1</li>
+                <li>Topic 1 Homework 1 Answers</li>
+                <li><a href="http://submarine-cable-map-2015.telegeography.com/" target="_blank">Submarine Cable Map</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-networks-protocols-lesson-2">Topic 2: Local Area Networks</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Describe the difference between a Local Area Network and a Wide Area Network.</li>
+                <li>Describe star and mesh network topologies.</li>
+                <li>Describe routers and switches needed to connect stand-alone computers into a Local Area Network.</li>
+                <li>Explain the use of Ethernet standards to transmit data over a wired network.</li>
+                <li>Explain the concept of virtual networks.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> PowerPoint Guide: Topic 2 Local Area Networks. Discuss how devices connect to a school network.</li>
+                <li><strong>Main Activity:</strong> Define LANs and compare them with WANs, discussing advantages/disadvantages. Go over star and mesh network topologies, including their advantages and disadvantages, and discuss partial mesh networks. Explain the difference between routers and switches and their roles in a home network. Introduce Ethernet standards as a set of rules for wired networking. Discuss transmission media (cables vs. radio waves) and different types of cables (copper, fibre optic, coaxial) and their characteristics.</li>
+                <li><strong>Plenary:</strong> Review vocabulary related to LANs, WANs, and network hardware. Assign Homework 2.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 2 tasks.</li>
+                <li>Homework 2.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> IT Systems Administrator, Network Technician, Data Centre Engineer – practical skills in setting up and managing local networks.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 2 Local Area Networks</li>
+                <li>Topic 2 Worksheet 2</li>
+                <li>Topic 2 Homework 2</li>
+                <li>Topic 2 Homework 2 Answers</li>
+                <li><a href="https://www.youtube.com/watch?v=fNL7d_fbHKQ" target="_blank">Mesh Networking Video</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-networks-protocols-lesson-3">Topic 3: Wireless Networking</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Understand wireless modes of connection, including: Wi-Fi, Bluetooth.</li>
+                <li>Explain the need for Wireless Access Points to create wireless hotspots.</li>
+                <li>Understand how encryption is used to secure data across network connections.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> PowerPoint Guide: Topic 3 Wireless networking. Discuss wireless devices used today (Wi-Fi, Bluetooth).</li>
+                <li><strong>Main Activity:</strong> Explain wireless transmission using radio waves (microwaves). Discuss factors affecting signal strength (walls, distance). Explain Wireless NICs and Wireless Access Points (WAPs) creating wireless hotspots. Discuss common Wi-Fi frequencies (2.4GHz vs. 5GHz) and their advantages/disadvantages regarding range and bandwidth. Emphasise the vulnerability of Wi-Fi signals to interception and the necessity of encryption. Introduce encryption terminology (plaintext, encoding/decoding) and symmetric encryption (private key). Explain Caesar shift cipher as an early encryption technique. Discuss TLS/SSL certificates for website encryption. Hand out Worksheet 3, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Discuss wireless technology use and network security. Assign Homework 3.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 3 tasks.</li>
+                <li>Homework 3.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Wireless Network Engineer, Cybersecurity Specialist, IT Support – essential knowledge for securing modern wireless communications.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 3 Wireless networking</li>
+                <li>Topic 3 Worksheet 3</li>
+                <li>Topic 3 Homework 3</li>
+                <li>Topic 3 Homework 3 Answers</li>
+                <li><a href="http://www.bbc.co.uk/news/technology-35374169" target="_blank">BBC Video on Encryption</a></li>
+                <li><a href="https://www.youtube.com/watch?v=T5HCy3udooo" target="_blank">Wi-Fi Security Video</a></li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-networks-protocols-lesson-4">Topic 4: Client-server and Peer-to-peer Networks</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Explain the role of computers in client-server and peer-to-peer networks.</li>
+                <li>Explain the advantages and disadvantages of client-server and peer-to-peer networks.</li>
+                <li>Describe what is meant by: Hosting, The Cloud.</li>
+                <li>Explain the advantages and disadvantages of various transmission media.</li>
+                <li>Describe the factors that affect network performance.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> PowerPoint Guide: Topic 4 Client-server and P2P networks. Discuss what happens when a web address is entered.</li>
+                <li><strong>Main Activity:</strong> Explain the client-server model (servers providing services to clients, examples like school setup, dedicated servers). Discuss advantages of client-server. Introduce peer-to-peer networks (resource sharing, suitability for small networks, advantages/disadvantages). Explain web hosting (server hardware, uptime, security). Define 'The Cloud' focusing on SaaS (Software as a Service) and discuss advantages/disadvantages of cloud services. Revisit transmission media characteristics (wired vs. wireless). Explain factors affecting network performance: bandwidth, connection speed, latency (comparing to motorways and car speed). Hand out Worksheet 4, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Review key vocabulary and concepts. Assign Homework 4.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 4 tasks.</li>
+                <li>Homework 4.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Cloud Engineer, Network Administrator, IT Consultant, Web Host Administrator – understanding network models and cloud services is vital for modern IT infrastructure.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 4 Client-server and peer-to-peer networks</li>
+                <li>Topic 4 Worksheet 4</li>
+                <li>Topic 4 Homework 4</li>
+                <li>Topic 4 Homework 4 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-networks-protocols-lesson-5">Topic 5: Standards, Protocols and Layers</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Describe the uses of communications protocols including: HTTP, HTTPS, FTP, POP, IMAP, SMTP, TCP/IP.</li>
+                <li>Explain the concept of layers in the TCP/IP protocol stack.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li><strong>Starter:</strong> PowerPoint Guide: Topic 5 Protocols and layers. Discuss protocols for meeting people (social rules).</li>
+                <li><strong>Main Activity:</strong> Define protocols. Explain HTTP and HTTPS (secure encryption, padlock symbol). Introduce FTP for file transfer. Explain email protocols: SMTP (sending), POP/POP3 and IMAP (receiving), and why IMAP is more common now. Discuss TCP/IP protocol (breaking data into packets, routing). Explain the concept of layers in the TCP/IP model (application, transport, internet, network access layers) and the advantages of using layers. Hand out Worksheet 5, Task 1 and Task 2.</li>
+                <li><strong>Plenary:</strong> Review acronyms and key concepts. Assign Homework 5.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Worksheet 5 tasks.</li>
+                <li>Homework 5.</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Network Architect, Cybersecurity Analyst, Software Developer (networking) – deep understanding of protocols is essential for building and securing networked applications.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>PowerPoint Guide: Topic 5 Standards, protocols and layers</li>
+                <li>Topic 5 Worksheet 5</li>
+                <li>Topic 5 Homework 5</li>
+                <li>Topic 5 Homework 5 Answers</li>
+            </ul>
+            <hr>
+
+            <h3 id="gcse-networks-protocols-assessment">Final Assessment</h3>
+            <p><strong>Learning Objectives:</strong></p>
+            <ol>
+                <li>Apply their knowledge in answers to a range of questions.</li>
+                <li>Be able to identify areas of strength and any gaps in their understanding of impacts of digital technology on wider society.</li>
+            </ol>
+            <p><strong>Teaching Activities:</strong></p>
+            <ul>
+                <li>Students complete the Assessment Test. Answers available in Unit 3 Assessment Test Answers. Test has been designed to be printed and answered by hand.</li>
+            </ul>
+            <p><strong>Assessment Opportunities:</strong></p>
+            <ul>
+                <li>Unit 3 Assessment.docx</li>
+            </ul>
+            <p><strong>Cross-Curricular and CEIAG Links:</strong></p>
+            <ul>
+                <li>N/A</li>
+                <li><strong>Careers:</strong> Reinforces fundamental networking knowledge essential for further study and careers in IT infrastructure and cybersecurity.</li>
+            </ul>
+            <p><strong>Further Resources:</strong></p>
+            <ul>
+                <li>Unit 3 Assessment.docx</li>
+                <li>Unit 3 Assessment Test Answers.docx</li>
+            </ul>
+        </div>
+
     </div>
 
     <script>
