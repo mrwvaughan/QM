@@ -12,7 +12,7 @@
             background-color: #f3f4f6; /* Light grey background */
             color: #1f2937; /* Dark grey text */
             line-height: 1.6;
-            padding-top: 100px; /* Add padding to body to prevent content from being hidden behind fixed nav */
+            padding-top: 100px; /* Adjusted padding to accommodate fixed navs */
         }
         .container {
             max-width: 1280px; /* Max width for content */
@@ -81,8 +81,10 @@
         }
         /* Sticky navigation bar styles */
         .main-nav {
-            position: sticky;
+            position: fixed; /* Fixed to stay at very top */
             top: 0;
+            left: 0;
+            width: 100%; /* Ensure it spans full width */
             z-index: 1000; /* Ensure it stays on top of other content */
             background-color: #f8fafc; /* Match its background */
             padding: 0.5rem; /* Match its padding */
@@ -145,18 +147,21 @@
             background-color: #f8fafc; /* Very light grey for nav background */
             box-shadow: none; /* Removed shadow from nav container */
         }
-        hr {
-            border-top: 1px solid #d1d5db; /* Light grey horizontal rule */
-            margin: 2rem 0; /* Spacing for the rule */
-        }
         .sub-nav-container {
-            margin-top: 1rem;
-            margin-bottom: 2rem;
-            padding: 0.75rem; /* Reduced padding */
+            position: fixed; /* Fixed to stay below main nav */
+            top: 80px; /* Positioned below the main nav (approx. 60px height + 20px buffer) */
+            left: 0;
+            width: 100%;
+            z-index: 999; /* Lower z-index than main nav */
             background-color: #e0f7fa; /* Lighter blue for sub-nav */
+            padding: 0.75rem; /* Reduced padding */
             border-radius: 0.5rem;
             text-align: center;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            display: none; /* Hidden by default, managed by JS */
+        }
+        .sub-nav-container.active {
+            display: block;
         }
         .sub-nav-container .nav-dropdown {
             min-width: 180px; /* Adjust width for sub-nav dropdown */
@@ -199,23 +204,19 @@
             </div>
         </nav>
 
+        <!-- Global Sub-Navigation Container -->
+        <div id="global-sub-nav" class="sub-nav-container">
+            <label for="current-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
+            <select id="current-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
+                <!-- Options will be dynamically populated by JavaScript -->
+            </select>
+        </div>
+
         <div id="ucser-sol" class="tab-content active">
             <h2 class="text-2xl font-bold mb-4 text-center">Scheme of Learning: Using Computers Safely, Effectively, and Responsibly</h2>
             <p class="mb-6 text-center text-gray-700">
                 This scheme of learning outlines a six-lesson unit focusing on the safe, effective, and responsible use of computers, suitable for Year 7 pupils.
             </p>
-
-            <div class="sub-nav-container">
-                <label for="ucser-lesson-jump" class="font-semibold text-blue-800 mr-2">Jump to Lesson:</label>
-                <select id="ucser-lesson-jump" class="nav-dropdown" onchange="jumpToLesson(this.value)">
-                    <option value="ucser-lesson-1">Lesson 1: File Management & Backup</option>
-                    <option value="ucser-lesson-2">Lesson 2: Social Networking & Online Identity</option>
-                    <option value="ucser-lesson-3">Lesson 3: Passwords & Email Scams</option>
-                    <option value="ucser-lesson-4">Lesson 4: Email Communication</option>
-                    <option value="ucser-lesson-5">Lesson 5: Search Engines & Online Information</option>
-                    <option value="ucser-lesson-6">Lesson 6: Unit Revision & Assessment</option>
-                </select>
-            </div>
 
             <h3 id="ucser-lesson-1">Lesson 1: File Management & Backup</h3>
             <p><strong>Learning Objectives:</strong></p>
@@ -251,7 +252,7 @@
             </ul>
             <hr>
 
-            <h3>Lesson 2: Social Networking & Online Identity</h3>
+            <h3 id="ucser-lesson-2">Lesson 2: Social Networking & Online Identity</h3>
             <p><strong>Learning Objectives:</strong></p>
             <ol>
                 <li>Learn about the possible dangers of social networking sites.</li>
@@ -281,7 +282,7 @@
                 <li><a href="https://www.nspcc.org.uk/keeping-children-safe/online-safety/" target="_blank">NSPCC: Online Safety</a> (Resources on various online safety topics for children)</li>
                 <li><a href="https://www.thinkuknow.co.uk/" target="_blank">Thinkuknow</a> (Educational resources from the National Crime Agency's CEOP Command)</li>
                 <li><strong>For Students:</strong></li>
-                <li><a href="https://www.bbc.co.uk/bitesize/guides/z342pv4/revision/3" target="_blank">BBC Newsround: Online Safety</a> (Articles and videos on staying safe online, including fake news)</li>
+                <li><a href="https://www.bbc.co.uk/newsround/38906931" target="_blank">BBC Newsround: Online Safety</a> (Articles and videos on staying safe online, including fake news)</li>
                 <li><a href="https://www.childline.org.uk/info-advice/bullying-abuse-safety/types-bullying/cyberbullying/" target="_blank">Childline: Cyberbullying</a> (Advice and support for young people experiencing cyberbullying)</li>
             </ul>
             <hr>
@@ -2446,13 +2447,103 @@
     </div>
 
     <script>
+        // Data structure to hold lesson IDs for each unit, matching the sub-nav options
+        const unitLessons = {
+            'ucser-sol': [
+                { value: 'ucser-lesson-1', text: 'Lesson 1: File Management & Backup' },
+                { value: 'ucser-lesson-2', text: 'Lesson 2: Social Networking & Online Identity' },
+                { value: 'ucser-lesson-3', text: 'Lesson 3: Passwords & Email Scams' },
+                { value: 'ucser-lesson-4', text: 'Lesson 4: Email Communication' },
+                { value: 'ucser-lesson-5', text: 'Lesson 5: Search Engines & Online Information' },
+                { value: 'ucser-lesson-6', text: 'Lesson 6: Unit Revision & Assessment' }
+            ],
+            'data-representation-sol': [
+                { value: 'data-representation-lesson-1', text: 'Lesson 1: Units and Binary Numbers' },
+                { value: 'data-representation-lesson-2', text: 'Lesson 2: Binary Arithmetic & Hexadecimal' },
+                { value: 'data-representation-lesson-3', text: 'Lesson 3: Characters' },
+                { value: 'data-representation-lesson-4', text: 'Lesson 4: Images' },
+                { value: 'data-representation-lesson-5', text: 'Lesson 5: Sound' },
+                { value: 'data-representation-lesson-6', text: 'Lesson 6: Compression' },
+                { value: 'data-representation-assessment', text: 'Assessment' }
+            ],
+            'computational-thinking-sol': [
+                { value: 'computational-thinking-lesson-1', text: 'Lesson 1: Logical Thinking' },
+                { value: 'computational-thinking-lesson-2', text: 'Lesson 2: Logic Gates' },
+                { value: 'computational-thinking-lesson-3', text: 'Lesson 3: Algorithmic Thinking' },
+                { value: 'computational-thinking-lesson-4', text: 'Lesson 4: Algorithmic Thinking 2' },
+                { value: 'computational-thinking-lesson-5', text: 'Lesson 5: Abstraction' },
+                { value: 'computational-thinking-lesson-6', text: 'Lesson 6: Decomposition' },
+                { value: 'computational-thinking-assessment', text: 'Assessment' }
+            ],
+            'understanding-computers-sol': [
+                { value: 'understanding-computers-lesson-1', text: 'Lesson 1: Elements of a Computer System' },
+                { value: 'understanding-computers-lesson-2', text: 'Lesson 2: The CPU' },
+                { value: 'understanding-computers-lesson-3', text: 'Lesson 3: Understanding Binary' },
+                { value: 'understanding-computers-lesson-4', text: 'Lesson 4: Binary Addition' },
+                { value: 'understanding-computers-lesson-5', text: 'Lesson 5: Storage Devices' },
+                { value: 'understanding-computers-lesson-6', text: 'Lesson 6: Convergence and New Technologies' },
+                { value: 'understanding-computers-assessment', text: 'Assessment' }
+            ],
+            'intro-python-sol': [
+                { value: 'intro-python-lesson-1', text: 'Lesson 1: The Basics' },
+                { value: 'intro-python-lesson-2', text: 'Lesson 2: Data Types and Arithmetic' },
+                { value: 'intro-python-lesson-3', text: 'Lesson 3: Selection' },
+                { value: 'intro-python-lesson-4', text: 'Lesson 4: Writing Algorithms' },
+                { value: 'intro-python-lesson-5', text: 'Lesson 5: While Loops' },
+                { value: 'intro-python-lesson-6', text: 'Lesson 6: Searching' },
+                { value: 'intro-python-assessment', text: 'Assessment' }
+            ],
+            'networks-sol': [
+                { value: 'networks-lesson-1', text: 'Lesson 1: The Internet' },
+                { value: 'networks-lesson-2', text: 'Lesson 2: Connectivity' },
+                { value: 'networks-lesson-3', text: 'Lesson 3: Topologies' },
+                { value: 'networks-lesson-4', text: 'Lesson 4: Network Types' },
+                { value: 'networks-lesson-5', text: 'Lesson 5: Encryption' },
+                { value: 'networks-lesson-6', text: 'Lesson 6: Assessment' }
+            ],
+            'python-next-steps-sol': [
+                { value: 'python-next-steps-lesson-1', text: 'Lesson 1: The Basics' },
+                { value: 'python-next-steps-lesson-2', text: 'Lesson 2: Loops' },
+                { value: 'python-next-steps-lesson-3', text: 'Lesson 3: Lists' },
+                { value: 'python-next-steps-lesson-4', text: 'Lesson 4: Procedures' },
+                { value: 'python-next-steps-lesson-5', text: 'Lesson 5: Functions' },
+                { value: 'python-next-steps-lesson-6', text: 'Lesson 6: Searching' },
+                { value: 'python-next-steps-assessment', text: 'Assessment' }
+            ],
+            'html-web-dev-sol': [
+                { value: 'html-web-dev-lesson-1', text: 'Lesson 1: HTML' },
+                { value: 'html-web-dev-lesson-2', text: 'Lesson 2: CSS' },
+                { value: 'html-web-dev-lesson-3', text: 'Lesson 3: Design' },
+                { value: 'html-web-dev-lesson-4', text: 'Lesson 4: Development' },
+                { value: 'html-web-dev-lesson-5', text: 'Lesson 5: Web Forms' },
+                { value: 'html-web-dev-lesson-6', text: 'Lesson 6: Assessment' }
+            ],
+            'computer-crime-sol': [
+                { value: 'computer-crime-lesson-1', text: 'Lesson 1: Computer Misuse' },
+                { value: 'computer-crime-lesson-2', text: 'Lesson 2: Protecting Personal Data' },
+                { value: 'computer-crime-lesson-3', text: 'Lesson 3: Passwords and Email Scams' },
+                { value: 'computer-crime-lesson-4', text: 'Lesson 4: Copyright' },
+                { value: 'computer-crime-lesson-5', text: 'Lesson 5: Computer Crime' },
+                { value: 'computer-crime-lesson-6', text: 'Lesson 6: Assessment' }
+            ],
+            'python-turtle-sol': [
+                { value: 'python-turtle-lesson-1', text: 'Lesson 1: Sequencing Instructions' },
+                { value: 'python-turtle-lesson-2', text: 'Lesson 2: Subroutines (Functions without parameters)' },
+                { value: 'python-turtle-lesson-3', text: 'Lesson 3: Iteration (For Loops)' },
+                { value: 'python-turtle-lesson-4', text: 'Lesson 4: Iteration (While Loops)' },
+                { value: 'python-turtle-lesson-5', text: 'Lesson 5: Combining Concepts & Creative Projects' },
+                { value: 'python-turtle-lesson-6', text: 'Lesson 6: Assessment & Portfolio' }
+            ]
+        };
+
+
         function showTab(tabId) {
             // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(function(tabContent) {
                 tabContent.classList.remove('active');
             });
 
-            // Set the selected value in the correct dropdown
+            // Set the selected value in the correct main dropdown
             document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
                 if (dropdown.querySelector(`option[value="${tabId}"]`)) {
                     dropdown.value = tabId;
@@ -2466,31 +2557,68 @@
             if (selectedTabContent) {
                 selectedTabContent.classList.add('active');
 
-                // Set the sub-navigation dropdown to the first lesson and scroll to it
-                const subNavDropdown = selectedTabContent.querySelector('.sub-nav-container .nav-dropdown');
-                if (subNavDropdown && subNavDropdown.options.length > 0) {
-                    subNavDropdown.value = subNavDropdown.options[0].value;
-                    jumpToLesson(subNavDropdown.options[0].value);
-                } else {
-                    // If no sub-nav, just scroll to the top of the tab content
-                    selectedTabContent.scrollIntoView({ behavior: 'smooth' });
-                }
+                // Populate and show the global sub-navigation
+                populateSubNav(tabId);
+
+                // Scroll to the top of the main content area (below fixed navs)
+                window.scrollTo({ top: 0, behavior: 'smooth' });
 
             } else {
                 console.error(`Error: Element with ID '${tabId}' not found.`);
             }
         }
 
+        function populateSubNav(activeUnitId) {
+            const subNavDropdown = document.getElementById('current-lesson-jump');
+            if (!subNavDropdown) {
+                console.error("Sub-navigation dropdown not found.");
+                return;
+            }
+
+            // Clear existing options
+            subNavDropdown.innerHTML = '';
+
+            // Get lessons for the active unit
+            const lessons = unitLessons[activeUnitId];
+
+            if (lessons) {
+                lessons.forEach(function(lesson) {
+                    const option = document.createElement('option');
+                    option.value = lesson.value;
+                    option.textContent = lesson.text;
+                    subNavDropdown.appendChild(option);
+                });
+                // Make the global sub-nav visible
+                document.getElementById('global-sub-nav').classList.add('active');
+                // Select the first lesson by default in sub-nav and jump to it
+                if (lessons.length > 0) {
+                    subNavDropdown.value = lessons[0].value;
+                    jumpToLesson(lessons[0].value);
+                }
+            } else {
+                // Hide the global sub-nav if no lessons are defined for the unit
+                document.getElementById('global-sub-nav').classList.remove('active');
+            }
+        }
+
+
         function jumpToLesson(lessonId) {
             const element = document.getElementById(lessonId);
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+                // Calculate offset for fixed headers
+                const mainNavHeight = document.querySelector('.main-nav').offsetHeight;
+                const subNavHeight = document.getElementById('global-sub-nav').offsetHeight;
+                const offset = mainNavHeight + subNavHeight + 20; // Add some extra buffer
+
+                window.scrollTo({
+                    top: element.offsetTop - offset,
+                    behavior: 'smooth'
+                });
             }
         }
 
         // Show the default tab on load
         document.addEventListener('DOMContentLoaded', function() {
-            // Set initial dropdown selections and show the first tab
             const year7Dropdown = document.getElementById('year7-units');
             if (year7Dropdown) {
                 year7Dropdown.value = 'ucser-sol'; // Set default selected option
