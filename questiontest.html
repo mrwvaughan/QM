@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Question Submission</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for print media */
+        @media print {
+            body {
+                font-family: 'Inter', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #fff; /* White background for printing */
+            }
+            .no-print {
+                display: none !important; /* Hide elements not needed for printing */
+            }
+            .print-area {
+                display: block !important; /* Ensure print area is visible */
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                box-shadow: none; /* Remove shadow for print */
+                border: none; /* Remove border for print */
+            }
+            h1, h2, h3 {
+                color: #000;
+            }
+            /* Adjust text and background for print */
+            .bg-gray-100 { background-color: #fff !important; }
+            .text-gray-800 { color: #000 !important; }
+            .border { border: 1px solid #ccc !important; }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+
+    <div class="container bg-white p-6 sm:p-8 lg:p-10 rounded-lg shadow-xl max-w-3xl w-full">
+
+        <!-- Exam Question Section -->
+        <div class="mb-8 pb-4 border-b border-gray-200">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 text-center">Exam Question</h1>
+            <div class="bg-blue-50 p-4 sm:p-6 rounded-lg border border-blue-200">
+                <h2 class="text-xl sm:text-2xl font-semibold text-blue-800 mb-3">Question:</h2>
+                <p class="text-gray-700 leading-relaxed text-base sm:text-lg">
+                    "Explain the main causes of climate change and discuss two significant impacts on the global environment. Propose one effective solution to mitigate these impacts."
+                </p>
+            </div>
+        </div>
+
+        <!-- Student Answer Input Section -->
+        <div class="no-print mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 text-center">Your Answer</h2>
+            <textarea
+                id="studentAnswer"
+                class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 text-base sm:text-lg"
+                rows="10"
+                placeholder="Type your answer here..."
+            ></textarea>
+            <button
+                id="submitBtn"
+                class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-md"
+            >
+                Submit Answer
+            </button>
+        </div>
+
+        <!-- Results Section (Hidden until submitted) -->
+        <div id="resultsSection" class="print-area hidden mt-8 pt-4 border-t border-gray-200">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 text-center">Submission Review</h2>
+
+            <!-- Student's Answer Display -->
+            <div class="bg-green-50 p-4 sm:p-6 rounded-lg border border-green-200 mb-6">
+                <h3 class="text-xl sm:text-2xl font-semibold text-green-800 mb-3">Your Submitted Answer:</h3>
+                <p id="displayedAnswer" class="text-gray-700 leading-relaxed text-base sm:text-lg whitespace-pre-wrap"></p>
+            </div>
+
+            <!-- Mark Scheme Display -->
+            <div class="bg-yellow-50 p-4 sm:p-6 rounded-lg border border-yellow-200 mb-6">
+                <h3 class="text-xl sm:text-2xl font-semibold text-yellow-800 mb-3">Mark Scheme:</h3>
+                <ul id="markScheme" class="list-disc pl-5 text-gray-700 text-base sm:text-lg">
+                    <!-- Mark scheme items will be populated by JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Print Button -->
+            <button
+                id="printBtn"
+                class="no-print mt-6 w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 shadow-md"
+            >
+                Print This Page
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const submitBtn = document.getElementById('submitBtn');
+            const studentAnswerInput = document.getElementById('studentAnswer');
+            const resultsSection = document.getElementById('resultsSection');
+            const displayedAnswer = document.getElementById('displayedAnswer');
+            const markSchemeList = document.getElementById('markScheme');
+            const printBtn = document.getElementById('printBtn');
+
+            // Define the mark scheme
+            const markScheme = [
+                "Identification of main causes of climate change (e.g., greenhouse gas emissions from fossil fuels, deforestation, industrial processes). (3 marks)",
+                "Discussion of two significant environmental impacts (e.g., rising sea levels, extreme weather events, biodiversity loss, ocean acidification). (4 marks)",
+                "Proposal of one effective solution to mitigate impacts (e.g., transition to renewable energy, carbon capture technologies, reforestation, international agreements). (3 marks)",
+                "Clarity, coherence, and logical structure of the answer. (2 marks)",
+                "Grammar, spelling, and punctuation. (1 mark)"
+            ];
+
+            // Event listener for the submit button
+            submitBtn.addEventListener('click', () => {
+                const answer = studentAnswerInput.value.trim(); // Get and trim the student's answer
+
+                if (answer === "") {
+                    // Simple alert for empty answer, could be replaced with a custom modal
+                    alert("Please write your answer before submitting.");
+                    return;
+                }
+
+                // Display the student's answer
+                displayedAnswer.textContent = answer;
+
+                // Clear previous mark scheme items
+                markSchemeList.innerHTML = '';
+
+                // Populate the mark scheme list
+                markScheme.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = item;
+                    markSchemeList.appendChild(listItem);
+                });
+
+                // Show the results section
+                resultsSection.classList.remove('hidden');
+
+                // Scroll to the results section for better UX
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Event listener for the print button
+            printBtn.addEventListener('click', () => {
+                window.print(); // Triggers the browser's print dialog
+            });
+        });
+    </script>
+</body>
+</html>
